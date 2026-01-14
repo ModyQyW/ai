@@ -3,7 +3,7 @@
     "exa": {
       "headers": {},
       "type": "http",
-      "url": "https://mcp.exa.ai/mcp?tools=get_code_context_exa"
+      "url": "https://mcp.exa.ai/mcp"
     },
     "context7": {
       "headers": {
@@ -11,6 +11,11 @@
       },
       "type": "http",
       "url": "https://mcp.context7.com/mcp"
+    },
+
+    "ddg-search": {
+      "args": ["duckduckgo-mcp-server"],
+      "command": "uvx"
     },
 
     "time": {
@@ -23,9 +28,9 @@
       "command": "uvx"
     },
 
-    "ddg-search": {
-      "command": "uvx",
-      "args": ["duckduckgo-mcp-server"]
+    "mermaid": {
+      "type": "http",
+      "url": "https://mcp.mermaid.ai/mcp"
     },
 
     "github": {
@@ -60,7 +65,17 @@
       "type": "stdio"
     },
 
+    "linear": {
+      "args": [
+        "-y",
+        "mcp-remote",
+        "https://mcp.linear.app/mcp"
+      ],
+      "command": "bunx"
+    },
+
     "Sentry": {
+      "type": "http",
       "url": "https://mcp.sentry.dev/mcp"
     },
 
