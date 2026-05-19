@@ -2,6 +2,8 @@
 
 English | [简体中文](./README.zh-CN.md)
 
+> This doc is translated by Deepseek V4 Flash.
+
 > If you are a beginner, this repository is likely not suitable for you. It is recommended to start your AI journey with [Cherry Studio](https://docs.cherry-ai.com/), [Deepseek Chat](https://chat.deepseek.com/), and [Yuanbao](https://yuanbao.tencent.com/).
 
 Personal global rules for AI Coding Agents.
@@ -53,12 +55,12 @@ As of 2026-05-19:
     - Normal Chinese and English expression
 4.  **Claude Code + Deepseek**
     - Fast most of the time, sometimes very slow
-    - Recommended to set Effort Level to xhigh, almost never overthinks
+    - Recommended to set Effort Level to max, almost never overthinks
     - Suitable for planning, architecture definition, and coding tasks; rarely over-engineers or defensive programming
     - No subscription plans, but the pricing + caching makes it perfectly suitable for Pay as you go
 5.  **Claude Code + GLM**
     - Medium-low speed
-    - Recommended to set Effort Level to xhigh, almost never overthinks
+    - Recommended to set Effort Level to max, almost never overthinks
     - Suitable for planning, architecture definition, and coding tasks; rarely over-engineers or defensive programming
     - Poor operations; overselling + almost impossible to purchase + multiple changes to subscription benefits
 
