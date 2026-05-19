@@ -1,63 +1,81 @@
-# 我的 Cursor 用户规则
+# AI
 
 [English](./README.md) | 简体中文
 
-<details>
+> 如果你是一个新手，本仓库大概率不适合你。推荐先从 [Cherry Studio](https://docs.cherry-ai.com/)、[Deepseek Chat](https://chat.deepseek.com/) 和 [元宝](https://yuanbao.tencent.com/) 开始你的 AI 之旅。
 
-<summary>
+自用的 AI Coding Agent 全局规则。
 
-Cursor [Plan Mode](https://cursor.com/cn/blog/plan-mode) 和它的 [定价规则调整](https://cursor.com/cn/blog/aug-2025-pricing) 让我重新思考了这个用户规则存在的必要性。
+## 背景
 
-</summary>
+在工作中，我同时使用 Cursor，Claude Code 和 Codex。在开源上，我同时使用 Claude Code 和 OpenCode。它们的底层设计各异，表现也各不相同，我试图统一我在不同 Coding Agent、不同模型上的体验，因此有了该仓库。
 
-AAPEV 的出发点是构建一个更灵活更简单的 [RIPER5](https://github.com/johnpeterman72/CursorRIPER)，但是
+## 模型
 
-- Plan Mode 更加强大；
-- 我没有更多的时间和精力来维护 AAPEV；
-- Claude 费用太贵了。
+根据代码质量和性价比这两方面来看，海外模型中 Opus 和 GPT 是最佳选择，国内模型中 GLM、Deepseek 是最佳选择。
 
-也因此，我决定放弃 AAPEV 的维护，转为更简单、更核心的简单用户规则。如果你想要更强大的规则，可以查看 [更多资源](#更多资源) 部分。
+> 绝对不要在模型上省钱！编程最贵的成本往往是返工时间，而非顶尖模型浪费的时间比顶尖模型多得多得多！
+>
+> 国内用上 Opus 和 GPT 最简单的方案就是买中转站。中转站不能掺水，或者恶意拦截，否则极其影响使用。个人推荐 [FishXCode](https://fishxcode.com/register?aff=WAjK)、[AiGoCode](https://aigocode.com/invite/7XH6NZZZ) 和 [CCSub](https://www.ccsub.net/register?ref=TUM8D23V)。
 
-</details>
+## 工具
 
-## After Cursor Plan Mode
+**Claude Code** > Codex > Cursor > OpenCode
 
-1. 复制 `simple-but-enough.md` 内容；
-2. 粘贴到 Cursor 用户规则。
-3. 移除 `aapev.md` 对应的 Cursor 用户规则。
-4. High 起来吧！🎉
+Claude Code 的工程化做得最好，使用流畅，各家模型接入也容易。
 
-## Before Cursor Plan Mode
+Codex 最新版限制了只能接入 Responses API，但很少模型支持，限制较大。
 
-1. 复制 `aapev.md` 内容；
-2. 粘贴到 Cursor 用户规则。
-3. High 起来吧！🎉
+Cursor 只有按量计费，工程化做得不如 Claude Code 和 Codex。现在强推自家的 Composer 模型，要接入第三方还要先付费。在当下显得有些笨拙。
 
-## 注意
+OpenCode 纯开源，工程化甚至不如 Cursor，只胜在开源可控 😅
 
-1. 请自行安装 MCP Servers 和全局包。
-   - MCP Servers 见 [mcp.json](./mcp.json)。可酌情删减。
-   - 全局包包括 `nodejs`、`bun`、`python3`、`fnm`、`uv`、`@antfu/ni`、`tsx`、`rimraf`。
-   - 如果没有安装 MCP Servers，理论上也不影响。
-   - 如果需要支持 Trae、VSCode 等其它编辑器，可能需要调整格式。
-2. 该规则优先在 Cursor 测试。
-   - 应该对 Trae、VSCode 等其它编辑器也有效，但未经测试。
-   - 应该对 Claude Code、Codex、Gemini CLI 等 CLI 工具也有效，但未经测试。
-3. 该规则优先在 GPT 测试。
-   - 应该对其它模型也有效，包括但不限于 Claude、Gemini、Grok、GLM、DeepSeek、Qwen Coder 等，但未经测试。
+Claude Code 应该总是作为第一选择。如果不懂得如何接入，可以使用 [CC Switch](https://ccswitch.io/zh/)。
 
-如果你正在使用 Trae，可以用一行命令覆盖更新电脑上的 Trae IDE 和 Trae 插件的用户规则：
+## 我的选择
+
+截至 2026-05-19：
+
+1. Cursor + Composer 2.5 Thinking (no fast)
+   - 速度很快
+   - 思考从不过度，偶尔思考不足
+   - 适合做快速问答、确认代码位置、确认代码链路、小修小改等相关工作
+   - 中英文表达正常，但偶尔会出现英文提问中文回答的情况，不影响正常使用
+2. Claude Code + 官方订阅 / 中转
+   - 速度中等
+   - 推荐将 Effort Level 设置为 max，偶尔思考过度
+   - 适合做制定计划、架构确定和编码任务等相关工作，几乎不过度设计，完全不防御性编程
+   - Opus 4.7 中文表达很重 AI 味，据说是提炼了 GPT5.4，如果需要中文可以用 Opus 4.6
+3. Codex + 官方订阅 / 中转
+   - 速度中等偏下
+   - 推荐将 Effort Level 设置为 xhigh，偶尔思考过度
+   - 适合 review 计划、架构、代码实现等，经常过度设计和防御性编程，可以用提示词削弱这类行为
+   - 中英文表达正常
+4. Claude Code + Deepseek
+   - 大部分时候速度很快，有时很慢
+   - 推荐将 Effort Level 设置为 xhigh，几乎不思考过度
+   - 适合做制定计划、架构确定和编码任务等相关工作，几乎不过度设计和防御性编程
+   - 没有套餐，但这定价+缓存完全可以 Pay as you go
+5. Claude Code + GLM
+   - 速度中等偏下
+   - 推荐将 Effort Level 设置为 xhigh，几乎不思考过度
+   - 适合做制定计划、架构确定和编码任务等相关工作，几乎不过度设计和防御性编程
+   - 运营很差，超卖+几乎买不到+套餐权益多次修改
+
+## 全局规则设置
+
+[AGENTS.md](https://agents.md/) 是通用的 Coding Agents 指南，可用于全局规则设置。
+
+本仓库提供了我自己使用的 [AGENTS.md](./AGENTS.md) 以及同步所用的 shell 脚本。**注意，你需要安装 [bun](https://bun.com/) 和最新版本的 [Node.js](https://nodejs.org/) LTS。**
 
 ```shell
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/ModyQyW/cursor-user-rules/refs/heads/main/update_user_rules_aapev.sh)"
-
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/ModyQyW/cursor-user-rules/refs/heads/main/update_user_rules_simple_but_enough.sh)"
+/bin/bash -c"$(curl -fsSL https://raw.githubusercontent.com/ModyQyW/ai/refs/heads/main/bump-global-agents-md.sh)"
 ```
 
-## 更多资源
+## 全局包和 Skills 设置
 
-- [tjx666/ai-rules](https://github.com/tjx666/ai-rules)
-- [johnpeterman72/CursorRIPER](https://github.com/johnpeterman72/CursorRIPER)
-- [johnpeterman72/CursorRIPER.sigma](https://github.com/johnpeterman72/CursorRIPER.sigma)
-- [kingkongshot/prompts](https://github.com/kingkongshot/prompts)
-- [Linus Review AI System Prompt YAML](https://gist.github.com/afshawnlotfi/044ed6649bf905d0bd33c79f7d15f254)
+本仓库提供了我自己使用的全局包工具和 Skills 所用的 shell 脚本。**注意，你需要安装 [bun](https://bun.com/) 和 [uv](https://docs.astral.sh/uv/)，并使用最新版本的 [Node.js](https://nodejs.org/) LTS。**
+
+```shell
+/bin/bash -c"$(curl -fsSL https://raw.githubusercontent.com/ModyQyW/ai/refs/heads/main/bump-global-packages-and-skills.sh)"
+```
