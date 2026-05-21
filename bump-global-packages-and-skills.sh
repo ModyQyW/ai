@@ -29,9 +29,14 @@ bunx skills@latest add -y -g schpet/linear-cli --skill linear-cli --agent claude
 
 bunx skills@latest add -y -g https://cli.sentry.dev --skill sentry-cli --agent claude-code --agent universal
 
-
 bunx skills@latest add -y -g addyosmani/agent-skills --skill code-simplification --agent claude-code --agent universal
 
 bunx skills@latest add -y -g softaworks/agent-toolkit --skill naming-analyzer --agent claude-code --agent universal
+
+bunx skills@latest add -y -g wshobson/agents --skill typescript-advanced-types --agent claude-code --agent universal
+
+bunx skills@latest add -y -g vercel-labs/agent-skills --skill vercel-composition-patterns --skill vercel-react-best-practices --agent claude-code --agent universal
+
+bunx skills@latest add -y -g cli/cli --skill gh --agent claude-code --agent universal
 
 bunx skills@latest add -y -g coreyhaines31/marketingskills --skill '*' --agent claude-code --agent universal

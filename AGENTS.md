@@ -142,18 +142,11 @@ Prefer `bun` / `bunx` over `npm` / `npx` for running CLI tools.
 
 - Use context7 `find-docs` skill when code generation, setup/configuration steps, or library/API documentation is required (plan, discuss, reference, use, edit, etc.).
 
-- Use `lark-docs` skill whenever the user pastes a `larksuite.com` URL (including `/wiki/...` and `/docs/...`), mentions a Lark doc, asks you to "read", "summarize", "review", "follow", or "implement" anything from a Lark document, or attaches Lark links as context for a coding/research task — even if they don't say "export" or "convert". Skip if not installed.
-
 - Use `linear-cli` skill when Linear issue information is required.
 
 - Use `sentry-cli` skill when Sentry issue / event information is required. Don't use Seer.
   - Analyze root causes and only output final verified conclusions, root cause and the best solution.
   - Apply recommended solution directly if the scope is small; otherwise, request confirmation.
-
-- Use `gh` command to browse GitHub repositories, search code, and query files.
-  - Use `gh auth switch -u drayeasy-ray` first when working in DrayEasy-related folders.
-  - Use `gh auth switch -u ModyQyW` first when working in other folders.
-  - Use `gh -h` for more usages.
 
 - Use `date` command when absolute time or current state is required. Never rely on outdated information.
   - Use `date +"%Y-%m-%dT%H:%M:%S%z" | sed -E 's/([+-][0-9]{2})([0-9]{2})$/\1:\2/'` to get ISO8601 string.

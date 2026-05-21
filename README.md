@@ -2,7 +2,7 @@
 
 English | [简体中文](./README.zh-CN.md)
 
-> This doc is translated by Deepseek V4 Flash.
+> This doc is translated by Deepseek V4 Flash & Gemini 2.5 Flash-Lite.
 
 > If you are a beginner, this repository is likely not suitable for you. It is recommended to start your AI journey with [Cherry Studio](https://docs.cherry-ai.com/), [Deepseek Chat](https://chat.deepseek.com/), and [Yuanbao](https://yuanbao.tencent.com/).
 
@@ -10,7 +10,9 @@ Personal global rules for AI Coding Agents.
 
 ## Background
 
-At work, I use Cursor, Claude Code, and Codex simultaneously. For open-source projects, I use both Claude Code and OpenCode. Their underlying designs and performances vary. I aim to unify my experience across different Coding Agents and models, hence this repository.
+In my work, I simultaneously use Cursor, Claude Code, and Codex, primarily developing TypeScript and React applications. In open source, I use Claude Code and OpenCode simultaneously. Their underlying designs are different, and their performances vary. I'm trying to unify my experience across different Coding Agents and different models, hence this repository.
+
+Your actual situation is very likely different from mine, so I strongly recommend that you fork the repository and customize it yourself.
 
 ## Models
 

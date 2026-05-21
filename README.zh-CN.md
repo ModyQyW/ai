@@ -8,7 +8,9 @@
 
 ## 背景
 
-在工作中，我同时使用 Cursor，Claude Code 和 Codex。在开源上，我同时使用 Claude Code 和 OpenCode。它们的底层设计各异，表现也各不相同，我试图统一我在不同 Coding Agent、不同模型上的体验，因此有了该仓库。
+在工作中，我同时使用 Cursor，Claude Code 和 Codex，主要开发 TypeScript 和 React 应用。在开源上，我同时使用 Claude Code 和 OpenCode。它们的底层设计各异，表现也各不相同，我试图统一我在不同 Coding Agent、不同模型上的体验，因此有了该仓库。
+
+你的实际情况很有可能和我不同，所以我非常建议你分叉该仓库并自行定制。
 
 ## 模型
 
