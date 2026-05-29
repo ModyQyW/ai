@@ -35,8 +35,10 @@ bunx skills@latest add -y -g softaworks/agent-toolkit --skill naming-analyzer --
 
 bunx skills@latest add -y -g wshobson/agents --skill typescript-advanced-types --agent claude-code --agent universal
 
-bunx skills@latest add -y -g vercel-labs/agent-skills --skill vercel-composition-patterns --skill vercel-react-best-practices --agent claude-code --agent universal
+bunx skills@latest add -y -g vercel-labs/agent-skills --skill vercel-composition-patterns --skill vercel-react-best-practices --skill react-view-transitions --skill react-native-skills --agent claude-code --agent universal
 
 bunx skills@latest add -y -g cli/cli --skill gh --agent claude-code --agent universal
+
+bunx skills@latest add -y -g https://github.com/cloudflare/skills --skill '*' --agent claude-code --agent universal
 
 bunx skills@latest add -y -g coreyhaines31/marketingskills --skill '*' --agent claude-code --agent universal

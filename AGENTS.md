@@ -152,7 +152,7 @@ Prefer `bun` / `bunx` over `npm` / `npx` for running CLI tools.
   - Use `date +"%Y-%m-%dT%H:%M:%S%z" | sed -E 's/([+-][0-9]{2})([0-9]{2})$/\1:\2/'` to get ISO8601 string.
   - Use `TZ={TIMEZONE_NAME} date +"%Y-%m-%dT%H:%M:%S%z" | sed -E 's/([+-][0-9]{2})([0-9]{2})$/\1:\2/'` to get ISO8601 string for specific time zone.
 
-- Prefer built-in `WebFetch` and `WebSearch` tools. Use Tavily agent skills if not available.
+- Prefer built-in `WebFetch` and `WebSearch` tools. Use Tavily agent skills if they are not available.
 
 - Prefer `ripgrep (rg)` over `grep`.
 
