@@ -13,32 +13,34 @@ bun install -g sentry@latest
 
 uv tool install tavily-cli@latest
 
-bunx skills@latest add -y -g anthropics/skills --skill docx --skill frontend-design --skill pdf --agent claude-code --agent universal
+bunx skills@latest rm -g --all -y
 
-bunx skills@latest add -y -g mattpocock/skills --skill grill-me --skill grill-with-docs --skill improve-codebase-architecture --agent claude-code --agent universal
+bunx skills@latest add -y -g anthropics/skills -s docx -s frontend-design -s pdf -a '*'
 
-bunx skills@latest add -y -g sanyuan0704/code-review-expert --skill code-review-expert --agent claude-code --agent universal
+bunx skills@latest add -y -g mattpocock/skills -s diagnose -s grill-me -s handoff -s improve-codebase-architecture -s zoom-out -a '*'
 
-bunx skills@latest add -y -g tavily-ai/skills --skill '*' --agent claude-code --agent universal
+bunx skills@latest add -y -g sanyuan0704/code-review-expert -s code-review-expert -a '*'
 
-bunx skills@latest add -y -g ant-design/ant-design-cli --skill antd --agent claude-code --agent universal
+bunx skills@latest add -y -g tavily-ai/skills -s '*' -a '*'
 
-bunx skills@latest add -y -g upstash/context7 --skill find-docs --agent claude-code --agent universal
+bunx skills@latest add -y -g ant-design/ant-design-cli -s antd -a '*'
 
-bunx skills@latest add -y -g schpet/linear-cli --skill linear-cli --agent claude-code --agent universal
+bunx skills@latest add -y -g upstash/context7 -s find-docs -a '*'
 
-bunx skills@latest add -y -g https://cli.sentry.dev --skill sentry-cli --agent claude-code --agent universal
+bunx skills@latest add -y -g schpet/linear-cli -s linear-cli -a '*'
 
-bunx skills@latest add -y -g addyosmani/agent-skills --skill code-simplification --agent claude-code --agent universal
+bunx skills@latest add -y -g https://cli.sentry.dev -s sentry-cli -a '*'
 
-bunx skills@latest add -y -g softaworks/agent-toolkit --skill naming-analyzer --agent claude-code --agent universal
+bunx skills@latest add -y -g addyosmani/agent-skills -s code-simplification -a '*'
 
-bunx skills@latest add -y -g wshobson/agents --skill typescript-advanced-types --agent claude-code --agent universal
+bunx skills@latest add -y -g softaworks/agent-toolkit -s naming-analyzer -a '*'
 
-bunx skills@latest add -y -g vercel-labs/agent-skills --skill vercel-composition-patterns --skill vercel-react-best-practices --skill react-view-transitions --skill react-native-skills --agent claude-code --agent universal
+bunx skills@latest add -y -g wshobson/agents -s typescript-advanced-types -a '*'
 
-bunx skills@latest add -y -g cli/cli --skill gh --agent claude-code --agent universal
+bunx skills@latest add -y -g vercel-labs/agent-skills -s vercel-composition-patterns -s vercel-react-best-practices -s react-view-transitions -s react-native-skills -a '*'
 
-bunx skills@latest add -y -g https://github.com/cloudflare/skills --skill '*' --agent claude-code --agent universal
+bunx skills@latest add -y -g cli/cli -s gh -a '*'
 
-bunx skills@latest add -y -g coreyhaines31/marketingskills --skill '*' --agent claude-code --agent universal
+bunx skills@latest add -y -g https://github.com/cloudflare/skills -s '*' -a '*'
+
+# bunx skills@latest add -y -g coreyhaines31/marketingskills -s '*' -a '*'
