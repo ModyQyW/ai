@@ -2,7 +2,7 @@
 
 English | [简体中文](./README.zh-CN.md)
 
-> This doc is translated by [Genes 2.0 Flash](https://agnes-ai.com/).
+> This doc is translated by [Agnes 2.0 Flash](https://agnes-ai.com/).
 
 > If you are a beginner, this repository is likely not suitable for you. It is recommended to start your AI journey with [Cherry Studio](https://docs.cherry-ai.com/), [DeepSeek Chat](https://chat.deepseek.com/), and [Yuanbao](https://yuanbao.tencent.com/).
 
