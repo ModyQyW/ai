@@ -17,7 +17,7 @@ bunx skills@latest rm -g --all -y
 
 bunx skills@latest add -y -g anthropics/skills -s docx -s frontend-design -s pdf -a '*'
 
-bunx skills@latest add -y -g mattpocock/skills -s diagnose-bugs -s grill-me -s handoff -s improve-codebase-architecture -a '*'
+bunx skills@latest add -y -g mattpocock/skills -s diagnose-bugs -s grill-me -s handoff -s improve-codebase-architecture -s resolving-merge-conflicts -a '*'
 
 bunx skills@latest add -y -g sanyuan0704/code-review-expert -s code-review-expert -a '*'
 
