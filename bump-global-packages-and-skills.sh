@@ -11,6 +11,8 @@ bun install -g @schpet/linear-cli@latest
 
 bun install -g sentry@latest
 
+bun install -g firecrawl-cli@latest
+
 uv tool install tavily-cli@latest
 
 bunx skills@latest rm -g --all -y
@@ -22,6 +24,8 @@ bunx skills@latest add -y -g mattpocock/skills -s diagnose-bugs -s grill-me -s h
 bunx skills@latest add -y -g sanyuan0704/code-review-expert -s code-review-expert -a '*'
 
 bunx skills@latest add -y -g tavily-ai/skills -s '*' -a '*'
+
+bunx skills@latest add -y -g firecrawl/cli -s firecrawl -a '*'
 
 bunx skills@latest add -y -g ant-design/ant-design-cli -s antd -a '*'
 
