@@ -21,6 +21,8 @@ bunx skills@latest add -y -g anthropics/skills -s docx -s frontend-design -s pdf
 
 bunx skills@latest add -y -g mattpocock/skills -s diagnose-bugs -s grilling -s handoff -s improve-codebase-architecture -s resolving-merge-conflicts -a '*'
 
+# bunx skills@latest add -y -g tw93/Waza -s '*' -a '*'
+
 bunx skills@latest add -y -g sanyuan0704/code-review-expert -s code-review-expert -a '*'
 
 bunx skills@latest add -y -g tavily-ai/skills -s '*' -a '*'
@@ -45,6 +47,6 @@ bunx skills@latest add -y -g vercel-labs/agent-skills -s vercel-composition-patt
 
 bunx skills@latest add -y -g cli/cli -s gh -a '*'
 
-bunx skills@latest add -y -g https://github.com/cloudflare/skills -s '*' -a '*'
+# bunx skills@latest add -y -g cloudflare/skills -s '*' -a '*'
 
 # bunx skills@latest add -y -g coreyhaines31/marketingskills -s '*' -a '*'
