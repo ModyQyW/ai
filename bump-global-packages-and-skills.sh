@@ -50,3 +50,5 @@ bunx skills@latest add -y -g cli/cli -s gh -a '*'
 # bunx skills@latest add -y -g cloudflare/skills -s '*' -a '*'
 
 # bunx skills@latest add -y -g coreyhaines31/marketingskills -s '*' -a '*'
+
+# bunx skills@latest add -y -g blader/humanizer -s '*' -a '*'
