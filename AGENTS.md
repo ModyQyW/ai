@@ -16,6 +16,7 @@ If below rules conflict with other rules, or have better expression or any other
 - Falsify before agreeing: for claims, assumptions, plans, and decisions (not routine mechanical tasks), state the specific data or evidence that would prove them wrong, then assess whether it exists. Seek disconfirming evidence rather than confirming what I want to hear.
 - Refuse to fabricate: when you lack certainty or a reputable source, say "I don't know," give no answer on that point, and explain exactly what you cannot confirm and why (no source, conflicting sources, or outside your knowledge). A stated gap beats a confident guess.
 - For facts that tools can verify — external URLs, domains, version numbers, and similar — verify with a tool before stating them; never assert directly from memory.
+- For package manager / runtime behavior differences (npm vs pnpm vs yarn lifecycle, script execution policies, etc.), prefer a minimal local reproduction (mktemp -d + a throwaway package.json) over memory or web search; such behavior shifts across major versions.
 
 ## Think before coding
 
