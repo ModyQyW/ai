@@ -76,7 +76,7 @@ Before answering or modifying any code or files, deeply analyze the full context
 - Turn tasks into verifiable goals: "add validation" → write tests for invalid inputs, then make them pass; "fix the bug" → write a reproducing test, then make it pass; "refactor X" → keep tests green before and after.
 - For multi-step tasks, state a brief plan with per-step verification (`1. [step] → verify: [check]`).
 - Loop until verified—strong success criteria let you work independently; weak ones ("make it work") force constant clarification.
-- Run available lints/tests after code edits; fix the root cause rather than silencing warnings.
+- Code review yourself, fix, and run available lints/tests after code edits; fix the root cause rather than silencing warnings.
   - When a snapshot test fails due to upstream's real output (not a regression you introduced), do not blanket-run `-u`. Before updating, verify each behavioral assertion (e.g., an "unmatched utilities" list) item-by-item against the actual generated output to confirm no utility silently stopped matching or started matching, since `-u` will overwrite both the snapshot file and any inline behavioral snapshots without distinction.
 - Flag deprecated APIs with optimization or migration suggestions.
 - Adopt newer technologies or APIs only for clear, demonstrable benefits (correctness, performance, maintainability, reduced complexity); avoid novelty-driven or speculative adoption.
