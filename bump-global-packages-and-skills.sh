@@ -23,7 +23,7 @@ bunx skills@latest add -y -g mattpocock/skills -s diagnose-bugs -s grilling -s h
 
 # bunx skills@latest add -y -g tw93/Waza -s '*' -a '*'
 
-bunx skills@latest add -y -g sanyuan0704/code-review-expert -s code-review-expert -a '*'
+bunx skills@latest add -y -g sanyuan0704/sanyuan-skills -s code-review-expert -a '*'
 
 bunx skills@latest add -y -g tavily-ai/skills -s '*' -a '*'
 
