@@ -19,7 +19,7 @@ bunx skills@latest rm -g --all -y
 
 bunx skills@latest add -y -g anthropics/skills -s docx -s frontend-design -s pdf -a '*'
 
-bunx skills@latest add -y -g mattpocock/skills -s diagnose-bugs -s grilling -s handoff -s improve-codebase-architecture -s resolving-merge-conflicts -s tdd -a '*'
+bunx skills@latest add -y -g mattpocock/skills -s codebase-design -s domain-modeling -s grilling -s handoff -s improve-codebase-architecture -s resolving-merge-conflicts -s tdd -a '*'
 
 # bunx skills@latest add -y -g tw93/Waza -s '*' -a '*'
 

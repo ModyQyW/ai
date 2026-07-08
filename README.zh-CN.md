@@ -92,3 +92,9 @@ OpenCode 纯开源，工程化比较差。做了这么久，很多体验细节�
 ```shell
 /bin/bash -c"$(curl -fsSL https://raw.githubusercontent.com/ModyQyW/ai/refs/heads/main/bump-global-packages-and-skills.sh)"
 ```
+
+## 致谢
+
+- [multica-ai/andrej-karpathy-skills](https://github.com/multica-ai/andrej-karpathy-skills)
+- [tw93/Waza](https://github.com/tw93/Waza)
+- [mattpocock/skills](https://github.com/mattpocock/skills)

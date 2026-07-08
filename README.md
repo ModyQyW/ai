@@ -94,3 +94,9 @@ This repository provides the shell script I use for global package tools and Ski
 ```shell
 /bin/bash -c"$(curl -fsSL https://raw.githubusercontent.com/ModyQyW/ai/refs/heads/main/bump-global-packages-and-skills.sh)"
 ```
+
+## Credit
+
+- [multica-ai/andrej-karpathy-skills](https://github.com/multica-ai/andrej-karpathy-skills)
+- [tw93/Waza](https://github.com/tw93/Waza)
+- [mattpocock/skills](https://github.com/mattpocock/skills)
