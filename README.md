@@ -95,6 +95,36 @@ This repository provides the shell script I use for global package tools and Ski
 /bin/bash -c"$(curl -fsSL https://raw.githubusercontent.com/ModyQyW/ai/refs/heads/main/bump-global-packages-and-skills.sh)"
 ```
 
+## Common workflows
+
+### Plan a feature
+
+`/think` + `/grilling` → approve → say "implement X" → `/check` → merge
+
+### Ship a fix
+
+`/hunt` → fix → `/check` → release/publish/push/issue follow-through
+
+### Research and write
+
+`/read` (fetch sources) → `/learn` (synthesize) → `/write` (polish)
+
+### Debug and verify
+
+`/hunt` (find root cause) → fix → `/check` (review changes)
+
+### Improve Codebase
+
+`/improve-codebase-architecture` → review the plan yourself → implement → `/check` → merge
+
+### Handoff Documents
+
+`/handoff` (for another agent)
+
+### Resolve Merge Conflicts
+
+`/resolving-merge-conflicts` → review the plan yourself → merge
+
 ## Credit
 
 - [multica-ai/andrej-karpathy-skills](https://github.com/multica-ai/andrej-karpathy-skills)
