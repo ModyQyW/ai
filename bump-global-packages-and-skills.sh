@@ -39,6 +39,8 @@ bunx skills@latest add -y -g addyosmani/agent-skills -s code-simplification -a '
 
 bunx skills@latest add -y -g vercel-labs/agent-skills -s vercel-composition-patterns -s vercel-react-best-practices -s react-view-transitions -s react-native-skills -a '*'
 
+bunx skills@latest add -y -g wshobson/agents -s typescript-advanced-types -a '*'
+
 bunx skills@latest add -y -g cli/cli -s gh -a '*'
 
 # bunx skills@latest add -y -g cloudflare/skills -s '*' -a '*'
