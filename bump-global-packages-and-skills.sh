@@ -13,7 +13,7 @@ bun install -g sentry@latest
 
 bun install -g firecrawl-cli@latest
 
-uv tool install tavily-cli@latest
+# uv tool install tavily-cli@latest
 
 bunx skills@latest rm -g --all -y
 
@@ -23,7 +23,7 @@ bunx skills@latest add -y -g mattpocock/skills -s codebase-design -s domain-mode
 
 bunx skills@latest add -y -g tw93/Waza -s '*' -a '*'
 
-bunx skills@latest add -y -g tavily-ai/skills -s '*' -a '*'
+# bunx skills@latest add -y -g tavily-ai/skills -s '*' -a '*'
 
 bunx skills@latest add -y -g firecrawl/cli -s firecrawl -a '*'
 
