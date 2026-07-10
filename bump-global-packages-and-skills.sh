@@ -37,7 +37,7 @@ bunx skills@latest add -y -g https://cli.sentry.dev -s sentry-cli -a '*'
 
 bunx skills@latest add -y -g addyosmani/agent-skills -s code-simplification -a '*'
 
-bunx skills@latest add -y -g vercel-labs/agent-skills -s vercel-composition-patterns -s vercel-react-best-practices -s react-view-transitions -s react-native-skills -a '*'
+bunx skills@latest add -y -g vercel-labs/agent-skills -s vercel-composition-patterns -s vercel-react-best-practices -s vercel-react-view-transitions -s vercel-react-native-skills -a '*'
 
 bunx skills@latest add -y -g wshobson/agents -s typescript-advanced-types -a '*'
 
