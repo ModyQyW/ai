@@ -4,129 +4,101 @@ English | [简体中文](./README.zh-CN.md)
 
 > This doc is translated by [Agnes 2.0 Flash](https://agnes-ai.com/).
 
-> If you are a beginner, this repository is likely not suitable for you. It is recommended to start your AI journey with [Cherry Studio](https://docs.cherry-ai.com/), [DeepSeek Chat](https://chat.deepseek.com/), and [Yuanbao](https://yuanbao.tencent.com/).
+> If you are a beginner, this repository is most likely not for you. It is recommended to start your AI journey with [Cherry Studio](https://docs.cherry-ai.com/), [DeepSeek Chat](https://chat.deepseek.com/), and [Yuanbao](https://yuanbao.tencent.com/).
 
-Global rules for my personal AI Coding Agent.
+Personal global rules for AI Coding Agents.
 
 ## Background
 
-At work, I simultaneously use Cursor, Claude Code, and Codex, primarily developing TypeScript and React applications. In open source, I use both ZCode and Reasonix. Their underlying designs differ, and their performances vary. I aim to unify my experience across different Coding Agents and different models, which is the reason for this repository.
+At work, I use Cursor, Claude Code, and Codex simultaneously, primarily developing TypeScript and React applications. In open source, I use ZCode and Reasonix at the same time. Their underlying designs and performance vary, and I tried to unify my experience across different coding agents and models, hence this repository.
 
-Your actual situation is likely different from mine, so I highly recommend forking this repository and customizing it yourself.
+Your actual situation is very likely different from mine, so I strongly recommend you fork this repository and customize it yourself.
 
 ## Models
 
-From the perspectives of code quality and cost-effectiveness, Opus and GPT are the best choices for overseas models, while GLM + DeepSeek are the best choices for domestic (Chinese) models.
+Based on code quality and cost-effectiveness, Opus and GPT are the best choices among overseas models, while GLM + DeepSeek are the best choices among domestic (Chinese) models.
 
-> **Never save money on models! The most expensive cost in programming is often rework time, not the extra time wasted by non-top-tier models!**
+> **Never save money on models! The most expensive cost in programming is often rework time, and using substandard models wastes far, far more time than top-tier models ever will!**
 >
-> The simplest way to access Opus and GPT domestically is to buy a proxy/relay service. The proxy service must not degrade quality or maliciously intercept requests, as this severely affects usability. I personally recommend [FishXCode](https://fishxcode.com/register?aff=WAjK), [AiGoCode](https://aigocode.com/invite/7XH6NZZZ), and [CCSub](https://www.ccsub.net/register?ref=TUM8D23V).
+> The easiest way to use Opus and GPT in China is to buy from API aggregators (transit stations). The aggregators must not dilute the service or maliciously intercept requests; otherwise, it will severely impact your experience. Personally, I recommend [FishXCode](https://fishxcode.com/register?aff=WAjK), [AiGoCode](https://aigocode.com/invite/7XH6NZZZ), and [CCSub](https://www.ccsub.net/register?ref=TUM8D23V).
 
 ## Tools
 
-**Claude Code** > Codex > Cursor ≈ ZCode ≈ Reasonix > OpenCode
+**Claude Code** > Codex > Cursor > ZCode ≈ Reasonix > OpenCode
 
-Claude Code has the best engineering integration, a smooth user experience, and easy access to various models.
+Claude Code has the best engineering, runs smoothly, and integrates various models easily.
 
-The latest version of Codex restricts access to the Responses API only, which is supported by very few models, imposing significant limitations.
+The latest version of Codex restricts integration to the Responses API only, which very few models support, leading to major limitations. If you really want to integrate other models, you can use [CC Switch](https://ccswitch.io/).
 
-Cursor only operates on a pay-as-you-go basis and has poorer engineering integration compared to Claude Code and Codex. It is now heavily promoting its own Composer model; accessing third-party models requires payment first. It appears somewhat clumsy in the current landscape.
+Cursor is pay-as-you-go only, and its engineering is not as polished as Claude Code and Codex. It currently heavily pushes its own Composer model, and you have to pay first to integrate third-party models. It feels a bit clumsy nowadays.
 
-ZCode emerged strongly from v3 onwards, providing an interface and user experience similar to Codex. Besides supporting GLM, it also supports DeepSeek, but still needs further development.
+ZCode has risen rapidly since v3, offering a UI and user experience similar to Codex. In addition to GLM, it can also integrate other models like DeepSeek and Mimo, but it still requires further development.
 
-Reasonix is known for its high cache hit rate and can easily access DeepSeek and GLM.
+Reasonix is known for its high cache hit rate and can easily integrate DeepSeek and GLM.
 
-OpenCode is purely open source but has poor engineering integration. After all this time, many UX details are still not as good as ZCode; its only advantage is being open and controllable. 😅
+OpenCode is purely open source with relatively poor engineering. After being around for this long, many user experience details are even worse than ZCode's; its only advantage is that it is open source and controllable. 😅
 
-It is recommended to consider only Claude Code and Codex if using overseas models, and ZCode and Reasonix if using domestic models.
+It is recommended to only consider Claude Code and Codex for overseas models, and ZCode and Reasonix for domestic models.
 
 ## My Choices
 
-As of 2026-06-17:
+As of 2026-07-24:
 
-1. Cursor + Composer 2.5 Thinking (no fast)
-   - Very fast
-   - Reasoning is neither excessive nor insufficient in occasional cases
-   - Suitable for quick Q&A, confirming code locations, tracing code logic, and minor edits
-   - Chinese and English expression are normal, though occasionally it may answer in Chinese when prompted in English, which does not affect normal usage
-   - Mindset shift: If you prefer using an editor/IDE over other CLI/Desktop APPs, Cursor is your best choice. You should view Cursor as a $20 top-tier model adapter + a tool for nearly unlimited use of Composer 2.5.
-2. Claude Code + Official Subscription / Proxy
+1. Cursor + Composer 2.5 Thinking / Grok 4.5 Thinking
+   - Very fast speed
+   - Thinking is never excessive, occasionally insufficient
+   - Composer 2.5 is suitable for simple tasks like quick Q&A, confirming code locations, tracing code paths, and small fixes; Grok 4.5 is suitable for complex tasks
+   - Chinese and English expressions are normal, but occasionally it responds in Chinese to English prompts, which does not affect normal use
+   - Mindset shift: If you are more accustomed to using an editor/IDE rather than other CLIs/Desktop apps, Cursor is your optimal choice. You need to view Cursor as a $20 top-tier model aggregator + an almost unlimited tool for Composer 2.5 / Grok 4.5
+2. Claude Code + Official Subscription / Aggregator
    - Medium speed
-   - Recommended to set Effort Level to max; occasionally reasons excessively
-   - Suitable for planning, architecture decisions, and coding tasks; rarely over-designs and does not engage in defensive programming at all
-   - Opus 4.7 and 4.8 have very "AI-flavored" Chinese expressions, reportedly distilled from GPT-5.4 and Qwen. If you need Chinese, you can use Opus 4.6, but it is recommended to prioritize Opus 4.8 1M.
-3. Codex + Official Subscription / Proxy
-   - Slightly below medium speed
-   - Recommended to set Effort Level to xhigh; occasionally reasons excessively
-   - Suitable for reviewing plans, architectures, and code implementations; often over-designs and engages in defensive programming. This behavior can be mitigated with prompts.
-   - GPT 5.5 has normal Chinese and English expression.
+   - Recommended to set Effort Level to max; occasionally overthinks, occasionally has performance drops (dumbing down)
+   - Suitable for complex tasks like planning, architecture determination, and coding tasks; almost no over-engineering, completely free of defensive programming
+   - Opus 4.7 and 4.8 have a strong AI flavor in Chinese expression, reportedly distilled from GPT5.4 and Qwen. If you need Chinese, you can use Opus 4.6, but it is still recommended to prioritize Opus 4.8 200k
+3. Codex + Official Subscription / Aggregator
+   - Medium-low speed
+   - Recommended to set Effort Level to high / xhigh; occasionally overthinks, occasionally has performance drops
+   - Daily use of GPT 5.6 Terra high, complex tasks use GPT 5.6 Sol xhigh
+   - Suitable for reviewing plans, architecture, and code implementation; frequently over-engineers and practices defensive programming, which can be mitigated with prompts
+   - GPT 5.6 Chinese and English expressions are normal
 4. ZCode + GLM
-   - Slightly below medium speed
-   - Recommended to set Effort Level to max; rarely reasons excessively
-   - Suitable for planning, architecture decisions, and coding tasks; rarely over-designs or engages in defensive programming
-   - Poor operations: overselling + almost impossible to buy + package benefits modified multiple times
-   - GLM 5.2 is the best domestic programming model.
+   - Medium-low speed
+   - Recommended to set Effort Level to max; occasionally doesn't overthink, occasionally has performance drops
+   - Suitable for complex tasks like planning, architecture determination, and coding tasks; occasionally over-engineers and practices defensive programming, often conflicting with itself
+   - Poor operations, overselling + almost impossible to buy + subscription benefits modified multiple times
+   - GLM 5.2 is one of the best domestic programming models; K3 is reportedly low in volume and unavailable for testing
 5. Reasonix + DeepSeek
-   - Usually fast, sometimes slow
-   - Recommended to set Effort Level to max; rarely reasons excessively
-   - Suitable for planning, architecture decisions, and coding tasks; rarely over-designs or engages in defensive programming
-   - No package plans, but with this pricing and cache rate, Pay as you go is perfectly viable
-   - Can serve as either Fallback or Main: GLM 5.2 -> DeepSeek v4 pro, GLM 5 Turbo -> DeepSeek v4 flash
+   - Fast most of the time, sometimes very slow
+   - Recommended to set Effort Level to max; almost no over-thinking
+   - Suitable for simple tasks like planning, architecture determination, and coding tasks; almost no over-engineering or defensive programming, not suitable for complex tasks
+   - No subscription plans, but given the pricing and cache hit rate, pay-as-you-go is totally fine
+   - Can be used either as a fallback or as the primary choice: GLM 5.2 -> DeepSeek v4 pro, GLM 5 Turbo -> DeepSeek v4 flash
 6. OpenCode / ZCode + Mimo 2.5 Thinking
-   - Slightly above medium speed
-   - Suitable for quick Q&A, confirming code locations, tracing code logic, and minor edits
-   - Prone to going off track on complex problems; reluctant to call Skills
+   - Medium-high speed
+   - Suitable for simple tasks like quick Q&A, confirming code locations, tracing code paths, and small fixes
+   - Complex problems are very prone to derailing, reluctant to invoke skills
 
-## Global Rules Settings
+## Global Rules Setup
 
-[AGENTS.md](https://agents.md/) is a universal guide for Coding Agents and can be used for global rule settings.
+[AGENTS.md](https://agents.md/) is a universal guide for Coding Agents, which can be used for global rule settings.
 
-This repository provides the [AGENTS.md](./AGENTS.md) I personally use, along with the shell script for synchronization. **Note that you need to install [bun](https://bun.com/) and the latest version of [Node.js](https://nodejs.org/) LTS.**
+This repository provides the [AGENTS.md](./AGENTS.md) I use myself and the shell script used for syncing. **Note: You need to have [bun](https://bun.com/) and the latest version of [Node.js](https://nodejs.org/) LTS installed.**
 
 ```shell
 /bin/bash -c"$(curl -fsSL https://raw.githubusercontent.com/ModyQyW/ai/refs/heads/main/bump-global-agents-md.sh)"
 ```
 
-## Global Packages and Skills Settings
+## Global Packages and Skills Setup
 
-This repository provides the shell script I use for global package tools and Skills. **Note that you need to install [bun](https://bun.com/) and [uv](https://docs.astral.sh/uv/), and use the latest version of [Node.js](https://nodejs.org/) LTS.**
+This repository provides the global package tools I use myself and the shell script used for Skills. **Note: You need to have [bun](https://bun.com/) and the latest version of [Node.js](https://nodejs.org/) LTS installed.**
 
 ```shell
 /bin/bash -c"$(curl -fsSL https://raw.githubusercontent.com/ModyQyW/ai/refs/heads/main/bump-global-packages-and-skills.sh)"
 ```
 
-## Common workflows
+## Acknowledgments
 
-### Plan a feature
-
-`/think` + `/grilling` → approve → say "implement X" → `/check` → merge
-
-### Ship a fix
-
-`/hunt` → fix → `/check` → release/publish/push/issue follow-through
-
-### Research and write
-
-`/read` (fetch sources) → `/learn` (synthesize) → `/write` (polish)
-
-### Debug and verify
-
-`/hunt` (find root cause) → fix → `/check` (review changes)
-
-### Improve Codebase
-
-`/improve-codebase-architecture` → review the plan yourself → implement → `/check` → merge
-
-### Handoff Documents
-
-`/handoff` (for another agent)
-
-### Resolve Merge Conflicts
-
-`/resolving-merge-conflicts` → review the plan yourself → merge
-
-## Credit
-
+- [KinetiNode/claude-fable-5-system-prompt-clean](https://github.com/KinetiNode/claude-fable-5-system-prompt-clean)
+- [mattpocock/skills](https://github.com/mattpocock/skills)
 - [multica-ai/andrej-karpathy-skills](https://github.com/multica-ai/andrej-karpathy-skills)
 - [tw93/Waza](https://github.com/tw93/Waza)
-- [mattpocock/skills](https://github.com/mattpocock/skills)
