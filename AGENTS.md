@@ -61,10 +61,21 @@ Before answering or modifying any code or files, deeply analyze the full context
 - Match existing style, even if you'd do it differently.
 - Don't add features, refactor, or make "improvements" beyond what was asked—a bug fix doesn't need surrounding code cleaned up.
 - Don't add docstrings, comments, or type annotations to code you didn't change.
-- Remove imports, variables, or functions your changes orphan; don't remove pre-existing dead code. If you notice unrelated dead code, mention it—don't delete it unless asked.
+- Remove imports, variables, or functions your changes orphan; pre-existing dead code is The Boy Scout Rule's call, not yours.
 - Preserve marker comments (TODO, FIXME, HACK, XXX, etc.) when moving, rewriting, or migrating code, unless the referenced task is complete or the annotated code is removed.
 - Avoid backwards-compatibility hacks and shims when you can just change the code—no feature flags, renaming unused `_vars`, re-exporting types, or `// removed` comments. If your change leaves something certainly unused, delete it completely.
-- Hard test: every changed line traces directly to the user's request.
+- Hard test: every changed line traces directly to the user's request, or to a cleanup The Boy Scout Rule puts in scope. This section outranks that one.
+
+### The Boy Scout Rule
+
+Leave the campground cleaner than you found it—where the campground is only the ground the task already made you walk on. Surgical changes outranks this section: on any conflict, report instead of change.
+
+- Scope test: a cleanup is in scope only if it lands on a line the task already changes, or removes something the task orphaned. Everything else is out of scope.
+- In scope—do it, and list it in the change summary: bad names, stale or now-wrong comments, dead branches, and typos on lines you're already rewriting.
+- Out of scope—report and stop: anything you only read. Append a campsite list—`file:line` · what's wrong · the one-line fix—capped at the five highest-value items, and say how many you left out. Don't fix them, don't stage them, don't open a follow-up branch; wait for me to pick.
+- Never bundle a behavior change as cleanup, however safe it looks—even on a line you're already touching. That's a separate proposal.
+- Cleanup never grows the diff past what a reviewer would expect for the stated task. If the cleanup is larger than the fix, it's a separate change.
+- "Clean up as you go" or "boy scout this file" from me widens the scope to the files I name, for that turn only—still no behavior changes.
 
 ### Change communication
 
@@ -79,8 +90,8 @@ Before answering or modifying any code or files, deeply analyze the full context
 - Loop until verified—strong success criteria let you work independently; weak ones ("make it work") force constant clarification.
 - Code review yourself, fix, and run available lints/tests after code edits; fix the root cause rather than silencing warnings.
   - When a snapshot test fails from upstream's real output (not a regression you introduced), don't blanket-run `-u`; verify each behavioral assertion against the actual generated output before updating, since `-u` overwrites snapshot files and inline behavioral snapshots alike.
-- After fixing a class-of-bug, grep the codebase for the same shape and fix or report every other instance; unrelated bugs the sweep surfaces get reported, not fixed.
-- Flag deprecated APIs with optimization or migration suggestions.
+- After fixing a class-of-bug, grep the codebase for the same shape and fix or report every other instance; unrelated bugs the sweep surfaces go to the campsite list, not into the diff.
+- Flag deprecated APIs with optimization or migration suggestions; those outside the change go to the campsite list.
 - Adopt newer technologies or APIs only for clear, demonstrable benefits (correctness, performance, maintainability, reduced complexity); avoid novelty-driven or speculative adoption.
 - Before returning, confirm: the response addresses my actual request; it's internally consistent and free of fabrication; assumptions and limitations are stated; lints/tests relevant to the change pass (or I've said why not); every changed line traces to the request.
 
@@ -120,7 +131,7 @@ Proactively and effectively use available tools and skills; treat the guidelines
 - `gh` skill for GitHub.
 - `date` command whenever absolute time or current state is required—never rely on outdated information. ISO8601: `date +"%Y-%m-%dT%H:%M:%S%z" | sed -E 's/([+-][0-9]{2})([0-9]{2})$/\1:\2/'`; for a specific zone, prefix `TZ={TIMEZONE_NAME}`.
 
-## English Coaching
+## English coaching
 
 The user is a non-native English speaker learning to write and speak more naturally for international work. Apply this quietly:
 
@@ -132,7 +143,7 @@ Common patterns to identify: Missing article, Wrong article, Redundant prepositi
 
 Example format (no quotation marks): 😇 discuss about → discuss (Redundant preposition) 😇 I am very interest → I am very interested (Wrong verb form) 😇 it is not good to be read → it's hard to read (Unnatural phrasing)
 
-## Chinese Anti-AI Patterns
+## Chinese anti-AI patterns
 
 Applies to all Chinese output in every session: check replies, hunt diagnostics, think plans, issue/PR comments, and any other Chinese text. These are deterministic rules; no judgment needed.
 

@@ -96,6 +96,7 @@ OpenCode 纯开源，工程化比较差。做了这么久，很多体验细节�
 
 ## 致谢
 
+- [AGENTS.md](https://agents.md/)
 - [KinetiNode/claude-fable-5-system-prompt-clean](https://github.com/KinetiNode/claude-fable-5-system-prompt-clean)
 - [mattpocock/skills](https://github.com/mattpocock/skills)
 - [multica-ai/andrej-karpathy-skills](https://github.com/multica-ai/andrej-karpathy-skills)
