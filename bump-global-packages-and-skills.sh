@@ -1,6 +1,4 @@
 #!/usr/bin/env bash
-bun install -g @antfu/ni@latest
-
 bun install -g @openai/codex@latest
 
 bun install -g @ant-design/cli@latest
