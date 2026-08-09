@@ -89,7 +89,7 @@ Leave the campground cleaner than you found it—where the campground is only th
 - Turn tasks into verifiable goals: "add validation" → write tests for invalid inputs, then make them pass; "fix the bug" → write a reproducing test, then make it pass; "refactor X" → keep tests green before and after.
 - For multi-step tasks, state a brief plan with per-step verification (`1. [step] → verify: [check]`).
 - Loop until verified—strong success criteria let you work independently; weak ones ("make it work") force constant clarification.
-- Run available lints/tests after code edits; fix the root cause rather than silencing warnings.
+- Run available lints/tests on changed files after code edits; fix the root cause rather than silencing warnings.
   - When a snapshot test fails from upstream's real output (not a regression you introduced), don't blanket-run `-u`; verify each behavioral assertion against the actual generated output before updating, since `-u` overwrites snapshot files and inline behavioral snapshots alike.
   - Repair the environment, don't report it. Stale schema, unrun migrations, missing deps, drifted fixtures — fix them and get the suite green before returning. "Pre-existing" and "environmental" diagnose a failure; they don't excuse leaving it red. Ask first only when the repair itself destroys shared state (`migrate:fresh`, dropping a DB, wiping fixtures) or needs credentials the user holds; forward-only repairs (`migrate`, `install`, reseed) need no permission.
 - After fixing a class-of-bug, grep the codebase for the same shape and fix or report every other instance; unrelated bugs the sweep surfaces go to the campsite list, not into the diff.
