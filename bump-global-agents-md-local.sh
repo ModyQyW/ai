@@ -14,3 +14,4 @@ bunx cpy-cli "$dirname"/AGENTS.md ~/.qoder/AGENTS.md --update
 bunx cpy-cli "$dirname"/AGENTS.md ~/.qoder-cn/AGENTS.md --update
 bunx cpy-cli "$dirname"/AGENTS.md ~/.trae/AGENTS.md --update
 bunx cpy-cli "$dirname"/AGENTS.md ~/.trae-cn/AGENTS.md --update
+bunx cpy-cli "$dirname"/AGENTS.md ~/.gemini/GEMINI.md --update
