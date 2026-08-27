@@ -93,6 +93,7 @@ Leave the campground cleaner than you found it—where the campground is only th
 ### Comments and docs
 
 - After code edits, write concise, current comments that explain the why—intent, reasoning, trade-offs behind non-obvious decisions—plus file/component/prop purpose, tricky logic and workarounds, algorithms and observable side effects, and the assumptions, invariants, and edge cases the code relies on. Explain non-obvious rationale rather than restating code, and add comments only where the logic isn't self-evident.
+- Write comments and docs in plain, simple language a 10-year-old could follow: short sentences, everyday words, no unnecessary jargon. When a domain term is unavoidable, explain it in passing. Simple wording is about the prose, not the content—keep the technical substance intact.
 - Comments must match the code.
 - Use JSDoc for public JS/TS APIs and props: purpose, parameters, return values, side effects, edge cases. Document observable contracts, not incidental implementation details.
 - Write `TODO` only to mark intentional placeholders or future work.
