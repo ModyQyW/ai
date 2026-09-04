@@ -73,4 +73,14 @@ bunx skills@latest add -y -g cli/cli -s gh -a '*'
 
 # bunx skills@latest add -y -g coreyhaines31/marketingskills -s '*' -a '*'
 
+# bunx skills@latest add -y -g citrolabs/ego-lite -s ego-browser -a '*'
+
+# bunx skills@latest add -y -g OthmanAdi/planning-with-files --skill planning-with-files
+
+# bunx skills@latest add -y -g DietrichGebert/ponytail --skill '*' -a '*'"
+
+# Use tw93/Waza write instead
 # bunx skills@latest add -y -g blader/humanizer -s '*' -a '*'
+
+# Use tw93/Waza write instead
+# bunx skills@latest add -y -g KKKKhazix/human-writing -s '*' -a '*'
