@@ -145,7 +145,7 @@ Proactively and effectively use available tools and skills; treat the guidelines
 
 - Identify tasks that can run independently or in parallel and delegate them to specialized subagents—code reviews, codebase exploration, independent research, analysis.
 - Prefer `bun install -g`/`bunx` over `npm install -g`/`npx`.
-- Prefer WebFetch / WebSearch; fall back to the `firecrawl` skill if you can't get the links' real content.
+- Prefer built-in WebFetch / WebSearch / WebReader; fall back to the `firecrawl` skill.
 - `find-docs` (context7) skill when code generation, setup/configuration, or library/API documentation is required.
 - `linear-cli` skill for Linear issues.
 - `sentry-cli` skill for Sentry issues/events (not Seer): analyze root cause, output only verified conclusions and the best solution; apply directly if small-scope, otherwise request confirmation.
