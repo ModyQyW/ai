@@ -1,6 +1,4 @@
 #!/usr/bin/env bash
-bun install -g @openai/codex@latest
-
 bun install -g firecrawl-cli@latest
 
 bun install -g ctx7@latest
@@ -11,12 +9,8 @@ bun install -g @schpet/linear-cli@latest
 
 bun install -g sentry@latest
 
-# uv tool install tavily-cli@latest
-
 # Remove all skills then reinstall
 bunx skills@latest rm -g --all -y
-
-# bunx skills@latest add -y -g tavily-ai/skills -s '*' -a '*'
 
 # Search, read and extract website
 bunx skills@latest add -y -g firecrawl/cli -s firecrawl -a '*'
@@ -25,16 +19,13 @@ bunx skills@latest add -y -g firecrawl/cli -s firecrawl -a '*'
 bunx skills@latest add -y -g upstash/context7 -s find-docs -a '*'
 
 # Local website design and documentations handling
-bunx skills@latest add -y -g anthropics/skills -s docx -s frontend-design -s pdf -a '*'
+bunx skills@latest add -y -g anthropics/skills -s docx -s frontend-design -a '*'
 
 # Daily development
-bunx skills@latest add -y -g tw93/Waza -s '*' -a '*'
+bunx skills@latest add -y -g tw93/Waza -s hunt -a '*'
 
 # Architecture and development enhanced
-bunx skills@latest add -y -g mattpocock/skills -s codebase-design -s domain-modeling -s grilling -s handoff -s improve-codebase-architecture -s tdd -a '*'
-
-# Code simplify
-bunx skills@latest add -y -g addyosmani/agent-skills -s code-simplification -a '*'
+bunx skills@latest add -y -g mattpocock/skills -s codebase-design -s domain-modeling -s grilling -s improve-codebase-architecture -s tdd -a '*'
 
 # Node.js
 bunx skills@latest add -y -g sickn33/antigravity-awesome-skills -s nodejs-best-practices -a '*'
@@ -44,6 +35,9 @@ bunx skills@latest add -y -g wshobson/agents -s typescript-advanced-types -a '*'
 
 # React & React Native
 bunx skills@latest add -y -g vercel-labs/agent-skills -s vercel-composition-patterns -s vercel-react-best-practices -s vercel-react-view-transitions -s vercel-react-native-skills -a '*'
+
+# Expo
+bunx skills@latest add -y -g expo/skills -s '*' -a '*'
 
 # React doctor
 bunx skills@latest add -y -g millionco/react-doctor -s improve-react -s react-doctor -a '*'
@@ -69,18 +63,9 @@ bunx skills@latest add -y -g https://cli.sentry.dev -s sentry-cli -a '*'
 # GitHub
 bunx skills@latest add -y -g cli/cli -s gh -a '*'
 
+# AI Testing
+bunx skills@latest add -y -g citrolabs/ego-lite -s ego-browser -a '*'
+
 # bunx skills@latest add -y -g cloudflare/skills -s '*' -a '*'
 
 # bunx skills@latest add -y -g coreyhaines31/marketingskills -s '*' -a '*'
-
-# bunx skills@latest add -y -g citrolabs/ego-lite -s ego-browser -a '*'
-
-# bunx skills@latest add -y -g OthmanAdi/planning-with-files --skill planning-with-files
-
-# bunx skills@latest add -y -g DietrichGebert/ponytail --skill '*' -a '*'"
-
-# Use tw93/Waza write instead
-# bunx skills@latest add -y -g blader/humanizer -s '*' -a '*'
-
-# Use tw93/Waza write instead
-# bunx skills@latest add -y -g KKKKhazix/human-writing -s '*' -a '*'
