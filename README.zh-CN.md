@@ -114,7 +114,7 @@ flowchart TD
    B --> C(运行 /grilling\nAI 审查计划决策分支和细节\n可选)
    C --> D(人工审查生成的计划)
    D --> E{计划通过审查？}
-   E -->|通过| F(运行 /plan-start/、/plan-execute、/plan-goal 或 /plan-loop，可选运行 /ego-lite\nAI 实施计划并自行测试功能表现)
+   E -->|通过| F(运行 /plan-start/、/plan-execute、/plan-goal 或 /plan-loop，可选运行 /ego-browser\nAI 实施计划并自行测试功能表现)
    E -->|不通过| G(提出要求，AI 修改计划)
    G --> C
    F --> H(人工测试功能表现)
@@ -137,7 +137,7 @@ flowchart TD
    A[修复问题] --> B(提供问题描述和复现步骤\n运行 /hunt)
    B --> C(人工审查修复计划)
    C --> D{计划通过审查？}
-   D -->|通过| E(AI实施计划并自行测试功能表现\n可选运行 /ego-lite)
+   D -->|通过| E(AI实施计划并自行测试功能表现\n可选运行 /ego-browser)
    D -->|不通过| F(提出要求，AI 修改计划)
    F --> C
    E --> G(人工测试功能表现)
@@ -160,7 +160,7 @@ flowchart TD
    A[优化代码库架构] --> B(运行 /improve-codebase-architecture\nAI 生成相关计划文件)
    B --> C(人工审查生成的计划)
    C --> D{计划通过审查？}
-   D -->|通过| F(AI实施计划并自行测试功能表现\n可选运行 /ego-lite)
+   D -->|通过| F(AI实施计划并自行测试功能表现\n可选运行 /ego-browser)
    D -->|不通过| E(提出要求，AI 修改计划)
    E --> C
    F --> G(人工测试功能表现)

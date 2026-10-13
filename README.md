@@ -116,7 +116,7 @@ flowchart TD
    B --> C(Run /grilling\nAI reviews plan decision branches and details\nOptional)
    C --> D(Human reviews generated plan)
    D --> E{Plan passes review?}
-   E -->|Yes| F(Run /plan-start/, /plan-execute, /plan-goal, or /plan-loop; optionally run /ego-lite\nAI executes plan and tests feature performance independently)
+   E -->|Yes| F(Run /plan-start/, /plan-execute, /plan-goal, or /plan-loop; optionally run /ego-browser\nAI executes plan and tests feature performance independently)
    E -->|No| G(Provide feedback, AI modifies plan)
    G --> C
    F --> H(Human tests feature performance)
@@ -139,7 +139,7 @@ flowchart TD
    A[Fix Bug] --> B(Provide bug description and reproduction steps\nRun /hunt)
    B --> C(Human reviews repair plan)
    C --> D{Plan passes review?}
-   D -->|Yes| E(AI executes plan and self-tests feature performance\nOptionally run /ego-lite)
+   D -->|Yes| E(AI executes plan and self-tests feature performance\nOptionally run /ego-browser)
    D -->|No| F(Provide feedback, AI modifies plan)
    F --> C
    E --> G(Human tests feature performance)
@@ -162,7 +162,7 @@ flowchart TD
    A[Optimize Codebase Architecture] --> B(Run /improve-codebase-architecture\nAI generates related planning files)
    B --> C(Human reviews generated plan)
    C --> D{Plan passes review?}
-   D -->|Yes| F(AI executes plan and self-tests performance\nOptionally run /ego-lite)
+   D -->|Yes| F(AI executes plan and self-tests performance\nOptionally run /ego-browser)
    D -->|No| E(Provide feedback, AI modifies plan)
    E --> C
    F --> G(Human tests feature performance)
