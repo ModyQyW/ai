@@ -2,7 +2,7 @@
 
 [English](./README.md) | 简体中文
 
-> 最后更新于 2026-10-12，请留意信息是否过期。
+> 最后更新于 2026-10-14，请留意信息是否过期。
 
 > 如果你是一个新手，本仓库大概率不适合你。推荐先从 [Cherry Studio](https://docs.cherry-ai.com/)、[DeepSeek Chat](https://chat.deepseek.com/) 和 [元宝](https://yuanbao.tencent.com/) 开始你的 AI 之旅。
 
@@ -10,7 +10,7 @@
 
 ## 背景
 
-在日常工作中，我同时使用 Cursor、Claude Code 和 Codex，主要开发 TypeScript 和 React 应用。在开源项目上，我主要使用 Pi，开发 TypeScript、React、Vue、Node 等相关生态的库。它们的底层设计各异，表现也各不相同，我试图统一我在不同 Coding Agent、不同模型上的体验，因此有了该仓库。
+在日常工作中，我同时使用 Cursor、Claude Code 和 Codex（Claude Code 为主），主要开发 TypeScript 和 React 应用。在开源项目上，我主要使用 Pi，开发 TypeScript、React、Vue、Node 等相关生态的库。它们的底层设计各异，表现也各不相同，我试图统一我在不同 Coding Agent、不同模型上的体验，因此有了该仓库。
 
 你的实际情况很有可能和我不同，比如我使用的 [egolite](https://lite.ego.app/) 目前只支持 macOS，所以我非常建议你分叉该仓库并自行定制。
 
@@ -68,6 +68,7 @@ OpenCode 纯开源，工程化比较差，很多体验细节打磨不足，只�
 3. 👍 Pi
    - 速度主要取决于模型供应商
    - 模型接入随自己心意，但仍然推荐设置默认的主模型和子代理模型
+   - 我个人使用 Opus 5.5 作为默认主模型、Sonnet 作为默认子代理模型，也推荐 GPT 6.1 Sol + DeepSeek 4.1 Flash 的性价比组合
 4. 👎︎ Cursor + Composer 2.5 Thinking / Grok 4.7 Thinking
    - 速度很快
    - 思考不过度，偶尔思考不足
@@ -186,7 +187,13 @@ Merge main into feat-xxx. Resolve the conflicts properly. Commit & push.
 Squash merge feat-xxx into main.
 ```
 
-## 其他选择？
+## FAQ
+
+### 我正在使用多个 GitHub 账号，有自动切换的方案吗？
+
+请参考 [Ability to set a default GH CLI user in a repository](https://github.com/cli/cli/discussions/12237)。
+
+### 我不喜欢拼凑的工作流，有其他整套的选择吗？
 
 如果你希望使用一整套的工作流，而不是当前拼凑的工作流，推荐看看 [mattpocock/skills](https://github.com/mattpocock/skills) 和 [tw93/Waza](https://github.com/tw93/Waza)。
 

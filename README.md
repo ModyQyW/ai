@@ -4,45 +4,44 @@ English | [简体中文](./README.zh-CN.md)
 
 > This doc is translated by [Gemini](https://gemini.google.com/).
 
-> Last updated on Oct 12, 2026. Please check if the information has expired.
+> Last updated on 2026-10-14. Please note that information may become outdated.
 
-> If you are a beginner, this repository is likely not suitable for you. We recommend starting your AI journey with [Cherry Studio](https://docs.cherry-ai.com/), [DeepSeek Chat](https://chat.deepseek.com/), and [Yuanbao](https://yuanbao.tencent.com/).
+> If you are a beginner, this repository is likely not suitable for you. It is recommended to start your AI journey with [Cherry Studio](https://docs.cherry-ai.com/), [DeepSeek Chat](https://chat.deepseek.com/), and [Yuanbao](https://yuanbao.tencent.com/).
 
-Global rules for my personal AI Coding Agent setup.
+Personal global rules for AI Coding Agents.
 
 ## Background
 
-In my daily workflow, I use Cursor, Claude Code, and Codex concurrently, primarily developing TypeScript and React applications. For open-source projects, I mainly use Pi, developing libraries related to the TypeScript, React, Vue, and Node ecosystems. Their underlying designs and behaviors vary, and I wanted to unify my experience across different Coding Agents and models—hence this repository.
+In my daily work, I use Cursor, Claude Code, and Codex simultaneously (with Claude Code as my primary tool), mainly developing TypeScript and React applications. For open-source projects, I primarily use Pi to build libraries within ecosystems like TypeScript, React, Vue, and Node. Because their underlying designs differ, their performance varies as well. I created this repository in an effort to unify my experience across different Coding Agents and models.
 
-Your actual setup will likely differ from mine; for example, [egolite](https://lite.ego.app/) currently only supports macOS. Therefore, I strongly recommend forking this repository and customizing it to suit your needs.
+Your actual situation is likely different from mine. For instance, [egolite](https://lite.ego.app/), which I use, currently only supports macOS. Therefore, I strongly recommend that you fork this repository and customize it for yourself.
 
 ## Models
 
-In terms of code quality and cost-effectiveness, Opus and GPT are the best choices among overseas models, followed by Grok. Among domestic (Chinese) models, GLM + DeepSeek are the best choices.
+In terms of code quality and cost-effectiveness, Opus and GPT are the best choices among overseas models, followed by Grok. Among domestic (Chinese) models, GLM + DeepSeek is the best combination.
 
-> **Never try to save money on models! The most expensive cost in programming is almost always rework time. The time wasted by inferior models is vastly—vastly—more than the cost of top-tier models!**
->
-> The easiest way to access Opus and GPT in China is through API transit/proxy providers. These providers must not dilute services or maliciously intercept traffic, as this severely impacts usability. Personally, I recommend [aicentos](https://aicentos.com/sign-up?aff=mgM8), [AiGoCode](https://aigocode.com/invite/7XH6NZZZ), and [CCSub](https://www.ccsub.net/register?ref=TUM8D23V).
+> **NEVER try to save money on models! The most expensive cost in programming is rework time, and non-top-tier models waste far, far more time than top-tier models do!**
+> For users in China, the easiest way to access Opus and GPT is through API relays (API proxies). Relays must not downgrade model quality ("water down" responses) or maliciously block requests, otherwise, the user experience will be severely impacted. Personally, I recommend [aicentos](https://aicentos.com/sign-up?aff=mgM8), [AiGoCode](https://aigocode.com/invite/7XH6NZZZ), and [CCSub](https://www.ccsub.net/register?ref=TUM8D23V).
 
 ## Tools
 
-For overseas tools: [Claude Code](https://claude.com/product/claude-code) > [Codex](https://chatgpt.com/codex/) > [Pi](https://pi.dev/) ≈ [Omp](https://omp.sh/) > [Cursor](https://cursor.com/) >> [OpenCode](https://opencode.ai/)
+When it comes to overseas tools: [Claude Code](https://claude.com/product/claude-code) > [Codex](https://chatgpt.com/codex/) > [Pi](https://pi.dev/) ≈ [Omp](https://omp.sh/) > [Cursor](https://cursor.com/) >> [OpenCode](https://opencode.ai/)
 
-Claude Code has the best engineering, offers a smooth user experience, and makes integrating various models straightforward.
+Claude Code has the best engineering implementation. It runs smoothly and allows easy integration with models from various providers.
 
-The latest version of Codex restricts integration to the Responses API, offering lower model support and tighter limitations. If you really want to connect it, you can use [magpie](https://usemagpie.ai/), [CC Switch](https://ccswitch.io/), or [opencodex](https://github.com/lidge-jun/opencodex).
+The latest version of Codex restricts integration exclusively to the Responses API, but model support is low and limitations are significant. If you really want to connect other models, you can use [magpie](https://usemagpie.ai/), [CC Switch](https://ccswitch.io/), or [opencodex](https://github.com/lidge-jun/opencodex).
 
-> 👍 If you are able to, please sponsor and support these fantastic open-source projects!
+> 👍 If you are able to, please sponsor and support these excellent open-source projects!
 
-Pi emphasizes free assembly, features exceptional engineering, and supports a broad range of models. Omp builds upon Pi with pre-configured assembly while retaining Pi's advantages. If you enjoy tweaking and configuring things, give Pi a try; if you prefer out-of-the-box convenience, you can use Omp directly.
+Pi places greater emphasis on custom assembly. Its engineering implementation is outstanding, and it supports a wide range of models. Omp is pre-assembled on top of Pi while preserving Pi's advantages. If you enjoy tweaking and configuring things, try Pi; if you prefer an out-of-the-box solution, you can use Omp directly.
 
-Cursor only offers pay-as-you-go pricing, and its engineering is not as polished as Claude Code or Codex. It currently heavily pushes its own Composer and Grok models, requiring an upfront payment just to use third-party integrations, which feels somewhat clunky nowadays.
+Cursor only offers pay-as-you-go pricing, and its engineering implementation is not as refined as Claude Code or Codex. Currently, it heavily pushes its in-house Composer and Grok models, requiring paid subscriptions just to connect third-party APIs. It feels somewhat clumsy at present.
 
-OpenCode is purely open source, but its engineering is relatively poor, with many user experience details lacking polish. Its only advantage is being open-source and controllable. It is recommended not to use it, nor to purchase products from OpenCode, as they suspecting engage in quantization and context truncation 😅
+OpenCode is fully open source, but its engineering quality is relatively poor, lacking polish in many subtle UX details. Its only merit is being open source and controllable. It is recommended to avoid using it or purchasing OpenCode products, as there are suspicions of quantization and context truncation 😅.
 
-> Grok-related tools have not been specifically tested.
+> Grok-related performance has not been specifically tested yet.
 
-Domestic (Chinese) tools are more complex. Model providers often supply official tools that you can use directly, such as:
+Domestic tools are more complex, as model providers often offer their own official tools that can be used directly, such as:
 
 - Kimi provides the [Kimi Series](https://www.kimi.com/products/download)
 - GLM provides [ZCode](https://zcode.z.ai/)
@@ -51,60 +50,73 @@ Domestic (Chinese) tools are more complex. Model providers often supply official
 - HY provides the [Buddy Series](https://www.codebuddy.cn/)
 - Mimo provides [mimo-code](https://mimo.xiaomi.com/zh/mimocode) and [mimo-desktop](https://mimo.xiaomimimo.com/desktop/)
 
-DeepSeek is an exception. In my view, the official DeepSeek Harness tool still lacks polish; it is recommended to use Pi, Omp, or [Reasonix](https://reasonix.io/) instead.
+DeepSeek is a special case: I feel that their official tool, DeepSeek Harness, still lacks polish. I recommend using Pi, Omp, or [Reasonix](https://reasonix.io/) instead.
 
 ## My Personal Evaluation
 
-For evaluating model capabilities and intelligence levels, it is recommended to consult [Artificial Analysis](https://artificialanalysis.ai/). However, actual performance still depends on whether the model experiences degradation (lobotomization) and whether the tool matches properly. The following personal evaluations are based on Tool + Model combinations and are for reference only.
+For evaluating model capabilities and intelligence levels, it is recommended to refer to [Artificial Analysis](https://artificialanalysis.ai/). However, actual performance still depends on factors like model degradation/dumbing-down and tool compatibility. Below are my personal evaluations based on tool + model combinations for reference only.
 
-1. 👍 Claude Code + Official Subscription / Proxy
-   - Medium speed
-   - Recommended setup: Use Opus 5.5 as the main model and Sonnet 5.5 as the sub-agent model. Set the main model's Effort Level to `high`. Occasionally over-thinks or under-performs slightly, but suitable for daily use. For complex work, it can be set to `xhigh` or `max`.
-   - Ideal for complex tasks like planning, architecture design, and coding tasks. Barely over-engineers and completely avoids defensive programming.
-   - Opus 5.5 + Sonnet 5.5 is currently the best model combination.
-2. 👍 Codex + Official Subscription / Proxy
-   - Medium speed
-   - Recommended setup: Use GPT 6.1 Sol as both the main model and sub-agent model. Set the Effort Level to `high`. Occasionally over-thinks or under-performs slightly, but suitable for daily use. For particularly complex work, it can be set to `xhigh` or `max`.
-   - Ideal for reviewing plans, architecture, and code implementations. Frequently over-engineers and practices defensive programming; you can use prompts to mitigate these behaviors.
-   - One of the best models.
+1. 👍 Claude Code + Official Subscription / Relay
+- Medium speed.
+- Recommended setup: Opus 5.5 as the main model, Sonnet 5.5 as the sub-agent model, with the main model's Effort Level set to `high`. It occasionally overthinks or experiences slight intelligence degradation, but it is suitable for daily use. For complex tasks, Effort Level can be set to `xhigh` or `max`.
+- Suitable for complex work such as planning, architectural design, and coding tasks. It rarely over-engineers and never engages in defensive programming.
+- Opus 5.5 + Sonnet 5.5 is currently the best model combination.
+
+
+2. 👍 Codex + Official Subscription / Relay
+- Medium speed.
+- Recommended setup: GPT 6.1 Sol as both the main and sub-agent model, with Effort Level set to `high`. It occasionally overthinks or experiences slight intelligence degradation, but is suitable for daily use. For particularly complex tasks, Effort Level can be set to `xhigh` or `max`.
+- Suitable for reviewing plans, architecture, and code implementations. It frequently over-engineers and writes defensive code, but this behavior can be reduced using prompts.
+- One of the best models available.
+
+
 3. 👍 Pi
-   - Speed primarily depends on the model provider.
-   - Model integration is completely up to you, though setting default main and sub-agent models is still recommended.
+- Speed mainly depends on the model provider.
+- Model integration is fully customizable, but setting default main and sub-agent models is still recommended.
+- Personally, I use Opus 5.5 as the default main model and Sonnet as the default sub-agent model. I also recommend the cost-effective combination of GPT 6.1 Sol + DeepSeek 4.1 Flash.
+
+
 4. 👎︎ Cursor + Composer 2.5 Thinking / Grok 4.7 Thinking
-   - Very fast speed
-   - Does not over-think, occasionally under-thinks.
-   - Composer 2.5 is suitable for quick Q&A, locating code, tracing code execution paths, and minor edits; Grok 4.7 is suited for complex tasks.
-   - Chinese and English expression are normal, though it occasionally answers in Chinese to English prompts, which does not affect regular usage.
-   - Mindset shift: If you are more accustomed to using an editor / IDE rather than other CLI / Desktop APPs, Cursor is your optimal choice. You need to view Cursor as a top-tier model connector for $20 + massive allowances for Composer 2.5 / Grok 4.7 tool usage.
-   - Alternatively, you might as well just use VS Code + Claude Code / Codex subscription, or directly purchase a Grok package.
+- Very fast.
+- Does not overthink, but occasionally under-thinks.
+- Composer 2.5 is suitable for quick Q&A, locating code, verifying execution paths, and making minor edits. Grok 4.7 is suitable for complex tasks.
+- Expresses normally in both English and Chinese, though it occasionally answers in Chinese when prompted in English (does not affect normal usage).
+- Mindset shift: If you prefer using an editor/IDE over CLI tools or desktop apps, Cursor is your best option. You should view Cursor as a $20 gateway to top-tier models + a tool providing massive quota usage for Composer 2.5 / Grok 4.7.
+- Still not as good as using VS Code directly with a Claude Code / Codex subscription, or purchasing a Grok plan directly.
+
+
 5. 👎︎ ZCode + GLM 5.3 / GLM 5.3 Flash
-   - Medium speed
-   - Recommended setup: Use GLM 5.3 as the main model and GLM 5.3 Flash as the sub-agent model. Set the Effort Level to `max`.
-   - GLM 5.3 Max is suitable for complex tasks like planning and architecture determination. Occasionally over-engineers and practices defensive programming, frequently over- or under-thinks, and engages in left-brain vs. right-brain internal struggles, but ultimately delivers results.
-   - GLM 5.3 Flash Max is better suited for daily use.
-   - One of the best domestic programming models, but operationally and support-wise extremely poor. You're better off just using DeepSeek directly.
+- Medium speed.
+- Recommended setup: GLM 5.3 as the main model and GLM 5.3 Flash as the sub-agent model, with Effort Level set to `max`.
+- GLM 5.3 Max is suitable for complex tasks like making plans and determining architecture. It occasionally over-engineers and writes defensive code, and often overthinks, under-thinks, or second-guesses itself, but ultimately delivers results.
+- GLM 5.3 Flash Max is better suited for daily usage.
+- One of the best coding models in China, but its operations and service management are extremely poor; you're better off using DeepSeek directly.
 
-## Global Rules Setup
 
-[AGENTS.md](https://agents.md/) is a universal Coding Agents guide that can be used for global rules configuration.
 
-This repository provides the [AGENTS.md](./AGENTS.md) I use personally, along with the shell script used to sync it. **Note: You need to have [bun](https://bun.com/) and the latest version of [Node.js LTS](https://nodejs.org/) installed.**
+## Global Rules Configuration
+
+[AGENTS.md](https://agents.md/) is a universal guide for Coding Agents that can be used for global rules configuration.
+
+This repository provides the [AGENTS.md](https://www.google.com/search?q=./AGENTS.md) I use personally, along with the shell script used for synchronization. **Note: You need to install [bun](https://bun.com/) and the latest version of [Node.js LTS](https://nodejs.org/).**
 
 ```shell
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/ModyQyW/ai/refs/heads/main/bump-global-agents-md.sh)"
+
 ```
 
 ## Global Packages and Skills Setup
 
-This repository provides the shell script for setting up my personal global package tools and Skills.
+This repository provides the shell script used for my global package tools and Skills.
 
-**Note: You need to have [bun](https://bun.com/) and the latest version of [Node.js LTS](https://nodejs.org/) installed.**
+**Note: You need to install [bun](https://bun.com/) and use the latest version of [Node.js LTS](https://nodejs.org/).**
 
 ```shell
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/ModyQyW/ai/refs/heads/main/bump-global-packages-and-skills.sh)"
+
 ```
 
-**Note: After executing the above command, you also need to manually install [ponytail](https://github.com/DietrichGebert/ponytail) and [planning-with-files](https://github.com/OthmanAdi/planning-with-files), otherwise some commands will not work.**
+**Note: After running the above command, you still need to manually install [ponytail](https://github.com/DietrichGebert/ponytail) and [planning-with-files](https://github.com/OthmanAdi/planning-with-files); otherwise, certain commands will not work.**
 
 ## Common Workflows
 
@@ -112,85 +124,96 @@ This repository provides the shell script for setting up my personal global pack
 
 ```mermaid
 flowchart TD
-   A[Plan Feature] --> B(Provide PRD or requirements description\nRun /pwf, /planning-with-files, or /plan\nAI generates related planning files)
-   B --> C(Run /grilling\nAI reviews plan decision branches and details\nOptional)
-   C --> D(Human reviews generated plan)
-   D --> E{Plan passes review?}
-   E -->|Yes| F(Run /plan-start/, /plan-execute, /plan-goal, or /plan-loop; optionally run /ego-browser\nAI executes plan and tests feature performance independently)
+   A[Feature Planning] --> B(Provide PRD or requirement details\nRun /pwf or /planning-with-files or /plan, optionally run /frontend-design\nAI generates related plan files)
+   B --> C(Run /grilling\nAI reviews decision branches and plan details\nOptional)
+   C --> D(Manually review generated plan)
+   D --> E{Plan passed review?}
+   E -->|Yes| F(Run /plan-start, /plan-execute, /plan-goal, or /plan-loop, optionally run /ego-browser\nAI implements plan and self-tests functionality)
    E -->|No| G(Provide feedback, AI modifies plan)
    G --> C
-   F --> H(Human tests feature performance)
-   H --> I{Feature performance passes test?}
+   F --> H(Manually test functionality)
+   H --> I{Functionality passed test?}
    I -->|Yes| J(Run /ponytail-review with subagents\nAI reviews implementation)
-   I -->|No| K(Provide feedback, AI modifies and self-tests feature performance)
+   I -->|No| K(Provide feedback, AI modifies and self-tests functionality)
    K --> H
-   J --> L(Human reviews implementation)
-   L --> M{Implementation passes review?}
+   J --> L(Manually review implementation)
+   L --> M{Implementation passed review?}
    M -->|Yes| N(Commit & Push)
-   M -->|No| O(Provide feedback, AI modifies feature implementation and self-tests performance)
+   M -->|No| O(Provide feedback, AI modifies implementation and self-tests functionality)
    O --> H
    N --> P[End]
+
 ```
 
 ### Bug Fixing
 
 ```mermaid
 flowchart TD
-   A[Fix Bug] --> B(Provide bug description and reproduction steps\nRun /hunt)
-   B --> C(Human reviews repair plan)
-   C --> D{Plan passes review?}
-   D -->|Yes| E(AI executes plan and self-tests feature performance\nOptionally run /ego-browser)
+   A[Bug Fixing] --> B(Provide bug description and reproduction steps\nRun /hunt)
+   B --> C(Manually review fix plan)
+   C --> D{Plan passed review?}
+   D -->|Yes| E(AI implements plan and self-tests functionality\nOptionally run /ego-browser)
    D -->|No| F(Provide feedback, AI modifies plan)
    F --> C
-   E --> G(Human tests feature performance)
-   G --> H{Feature performance passes test?}
+   E --> G(Manually test functionality)
+   G --> H{Functionality passed test?}
    H -->|Yes| I(Run /ponytail-review with subagents\nAI reviews implementation)
-   H -->|No| J(Provide feedback, AI modifies and self-tests feature performance)
+   H -->|No| J(Provide feedback, AI modifies and self-tests functionality)
    J --> G
-   I --> K(Human reviews implementation)
-   K --> L{Implementation passes review?}
+   I --> K(Manually review implementation)
+   K --> L{Implementation passed review?}
    L -->|Yes| M(Commit & Push)
-   L -->|No| N(Provide feedback, AI modifies feature implementation and self-tests performance)
+   L -->|No| N(Provide feedback, AI modifies implementation and self-tests functionality)
    N --> G
    M --> O[End]
+
 ```
 
-### Codebase Architecture Refactoring
+### Optimizing Codebase Architecture
 
 ```mermaid
 flowchart TD
-   A[Optimize Codebase Architecture] --> B(Run /improve-codebase-architecture\nAI generates related planning files)
-   B --> C(Human reviews generated plan)
-   C --> D{Plan passes review?}
-   D -->|Yes| F(AI executes plan and self-tests performance\nOptionally run /ego-browser)
+   A[Optimize Codebase Architecture] --> B(Run /improve-codebase-architecture\nAI generates related plan files)
+   B --> C(Manually review generated plan)
+   C --> D{Plan passed review?}
+   D -->|Yes| F(AI implements plan and self-tests functionality\nOptionally run /ego-browser)
    D -->|No| E(Provide feedback, AI modifies plan)
    E --> C
-   F --> G(Human tests feature performance)
-   G --> H{Feature performance passes test?}
+   F --> G(Manually test functionality)
+   G --> H{Functionality passed test?}
    H -->|Yes| I(Run /ponytail-review with subagents\nAI reviews implementation)
-   H -->|No| J(Provide feedback, AI modifies and self-tests feature performance)
+   H -->|No| J(Provide feedback, AI modifies and self-tests functionality)
    J --> G
-   I --> K(Human reviews implementation)
-   K --> L{Implementation passes review?}
+   I --> K(Manually review implementation)
+   K --> L{Implementation passed review?}
    L -->|Yes| M(Commit & Push)
-   L -->|No| N(Provide feedback, AI modifies feature implementation and self-tests performance)
+   L -->|No| N(Provide feedback, AI modifies implementation and self-tests functionality)
    N --> G
    M --> O[End]
+
 ```
 
 ### Handling Merges
 
 ```text
 Merge main into feat-xxx. Resolve the conflicts properly. Commit & push.
+
 ```
 
 ```text
 Squash merge feat-xxx into main.
+
 ```
 
-## Alternatives?
+## FAQ
 
-If you prefer a comprehensive workflow suite rather than a piecemeal setup like mine, check out [mattpocock/skills](https://github.com/mattpocock/skills) and [tw93/Waza](https://github.com/tw93/Waza).
+### I am using multiple GitHub accounts. Is there an automatic switching solution?
+
+Please refer to [Ability to set a default GH CLI user in a repository](https://github.com/cli/cli/discussions/12237).
+
+### I don't like pieced-together workflows. Are there complete end-to-end alternatives?
+
+If you prefer a complete, all-in-one workflow suit rather than a pieced-together one, check out [mattpocock/skills](https://github.com/mattpocock/skills) and [tw93/Waza](https://github.com/tw93/Waza).
 
 ## Acknowledgments
 
