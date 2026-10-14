@@ -43,6 +43,7 @@ When rules conflict, resolve in this order and still flag the conflict:
 - When code or a comment cites a doc link, open it before relying on it. If you can't, treat the claim as a suspicion and say so.
 - For package-manager or runtime differences (npm/pnpm/yarn/bun lifecycles, script policies), prefer a minimal repro in `mktemp -d` over memory or search.
 - Frontend code is live only if every ancestor up to a routed page renders it. Imported ≠ mounted: a commented-out JSX or dead conditional anywhere in the chain breaks it. When it matters (security, dead code, impact analysis), show the chain `page → … → element` and flag any break.
+- Before adding storage for a field that gets dropped, confirm that a current UI lets the user enter it; otherwise propose deprecating it.
 
 ## Planning
 
