@@ -76,7 +76,7 @@ For evaluating model capabilities and intelligence levels, it is recommended to 
 - Personally, I use Opus 5.5 high as the default main model and Sonnet 5.5 high as the default sub-agent model. I also recommend the cost-effective combination of GPT 6.1 Sol high / Grok 4.7 xhigh + DeepSeek 4.1 Flash high.
 
 
-4. 👎︎ Cursor + Composer 2.5 Thinking / Grok 4.7 Thinking
+4. 👎︎ Cursor + Composer 2.5 / Grok 4.7
 - Very fast.
 - Does not overthink, but occasionally under-thinks.
 - Composer 2.5 is suitable for quick Q&A, locating code, verifying execution paths, and making minor edits. Grok 4.7 is suitable for complex tasks.
