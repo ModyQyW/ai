@@ -68,7 +68,7 @@ OpenCode 纯开源，工程化比较差，很多体验细节打磨不足，只�
 3. 👍 Pi
    - 速度主要取决于模型供应商
    - 模型接入随自己心意，但仍然推荐设置默认的主模型和子代理模型
-   - 我个人使用 Opus 5.5 作为默认主模型、Sonnet 作为默认子代理模型，也推荐 GPT 6.1 Sol + DeepSeek 4.1 Flash 的性价比组合
+   - 我个人使用 Opus 5.5 high 作为默认主模型、Sonnet 5.5 high 作为默认子代理模型，也推荐 GPT 6.1 Sol High / Grok 4.7 xhigh + DeepSeek 4.1 Flash high 的性价比组合
 4. 👎︎ Cursor + Composer 2.5 Thinking / Grok 4.7 Thinking
    - 速度很快
    - 思考不过度，偶尔思考不足

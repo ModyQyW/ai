@@ -73,7 +73,7 @@ For evaluating model capabilities and intelligence levels, it is recommended to 
 3. 👍 Pi
 - Speed mainly depends on the model provider.
 - Model integration is fully customizable, but setting default main and sub-agent models is still recommended.
-- Personally, I use Opus 5.5 as the default main model and Sonnet as the default sub-agent model. I also recommend the cost-effective combination of GPT 6.1 Sol + DeepSeek 4.1 Flash.
+- Personally, I use Opus 5.5 high as the default main model and Sonnet 5.5 high as the default sub-agent model. I also recommend the cost-effective combination of GPT 6.1 Sol high / Grok 4.7 xhigh + DeepSeek 4.1 Flash high.
 
 
 4. 👎︎ Cursor + Composer 2.5 Thinking / Grok 4.7 Thinking
