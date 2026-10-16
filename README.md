@@ -213,11 +213,18 @@ Please refer to [Ability to set a default GH CLI user in a repository](https://g
 
 ### I don't like pieced-together workflows. Are there complete end-to-end alternatives?
 
-If you prefer a complete, all-in-one workflow suit rather than a pieced-together one, check out [mattpocock/skills](https://github.com/mattpocock/skills) and [tw93/Waza](https://github.com/tw93/Waza).
+If you prefer a complete, all-in-one workflow suit rather than a pieced-together one, check out:
+
+- [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills)
+- [cursor/plugins pstack](https://github.com/cursor/plugins/tree/main/pstack)
+- [mattpocock/skills](https://github.com/mattpocock/skills)
+- [tw93/Waza](https://github.com/tw93/Waza)
 
 ## Acknowledgments
 
+- [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills)
 - [AGENTS.md](https://agents.md/)
+- [cursor/plugins pstack](https://github.com/cursor/plugins/tree/main/pstack)
 - [mattpocock/skills](https://github.com/mattpocock/skills)
 - [multica-ai/andrej-karpathy-skills](https://github.com/multica-ai/andrej-karpathy-skills)
 - [tw93/Waza](https://github.com/tw93/Waza)

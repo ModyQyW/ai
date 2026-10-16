@@ -195,11 +195,18 @@ Squash merge feat-xxx into main.
 
 ### 我不喜欢拼凑的工作流，有其他整套的选择吗？
 
-如果你希望使用一整套的工作流，而不是当前拼凑的工作流，推荐看看 [mattpocock/skills](https://github.com/mattpocock/skills) 和 [tw93/Waza](https://github.com/tw93/Waza)。
+如果你希望使用一整套的工作流，而不是当前拼凑的工作流，推荐看看以下内容：
+
+- [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills)
+- [cursor/plugins pstack](https://github.com/cursor/plugins/tree/main/pstack)
+- [mattpocock/skills](https://github.com/mattpocock/skills)
+- [tw93/Waza](https://github.com/tw93/Waza)
 
 ## 致谢
 
+- [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills)
 - [AGENTS.md](https://agents.md/)
+- [cursor/plugins pstack](https://github.com/cursor/plugins/tree/main/pstack)
 - [mattpocock/skills](https://github.com/mattpocock/skills)
 - [multica-ai/andrej-karpathy-skills](https://github.com/multica-ai/andrej-karpathy-skills)
 - [tw93/Waza](https://github.com/tw93/Waza)
