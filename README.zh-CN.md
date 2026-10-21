@@ -2,7 +2,7 @@
 
 [English](./README.md) | 简体中文
 
-> 最后更新于 2026-10-14，请留意信息是否过期。
+> 最后更新于 2026-10-21，请留意信息是否过期。
 
 > 如果你是一个新手，本仓库大概率不适合你。推荐先从 [Cherry Studio](https://docs.cherry-ai.com/)、[DeepSeek Chat](https://chat.deepseek.com/) 和 [元宝](https://yuanbao.tencent.com/) 开始你的 AI 之旅。
 
@@ -16,7 +16,7 @@
 
 ## 模型
 
-根据代码质量和性价比这两方面来看，海外模型中 Opus 和 GPT 是最佳选择，Grok 次之。国内模型中 GLM + DeepSeek 是最佳选择。
+根据代码质量和性价比这两方面来看，海外模型中 Opus 和 GPT 是最佳选择。国内模型中 GLM + DeepSeek 是最佳选择。
 
 > **绝对不要在模型上省钱！编程最贵的成本往往是返工时间，而非顶尖模型浪费的时间比顶尖模型多得多得多！**
 >
@@ -37,8 +37,6 @@ Pi 更强调自由组装，工程化非常优秀，适配模型广。Omp 在 Pi 
 Cursor 只有按量计费，工程化做得不如 Claude Code 和 Codex。现在强推自家的 Composer 和 Grok 模型，要接入第三方还要先付费。在当下显得有些笨拙。
 
 OpenCode 纯开源，工程化比较差，很多体验细节打磨不足，只胜在开源可控。建议别用，也别买 OpenCode 家的产品，疑似存在量化和上下文裁剪😅
-
-> Grok 相关未具体测试。
 
 国内工具方面更为复杂，模型提供方往往提供了官方工具，直接使用即可，比如
 
@@ -68,7 +66,7 @@ OpenCode 纯开源，工程化比较差，很多体验细节打磨不足，只�
 3. 👍 Pi
    - 速度主要取决于模型供应商
    - 模型接入随自己心意，但仍然推荐设置默认的主模型和子代理模型
-   - 我个人使用 Opus 5.5 high 作为默认主模型、Sonnet 5.5 high 作为默认子代理模型，也推荐 GPT 6.1 Sol High / Grok 4.7 xhigh + DeepSeek 4.1 Flash high 的性价比组合
+   - 我个人使用 Opus 5.5 high 作为默认主模型、Sonnet 5.5 high 作为默认子代理模型，也推荐 GPT 6.1 Sol High + DeepSeek 4.1 Flash high 的性价比组合
 4. 👎︎ Cursor + Composer 2.5 / Grok 4.7
    - 速度很快
    - 思考不过度，偶尔思考不足

@@ -4,7 +4,7 @@ English | [简体中文](./README.zh-CN.md)
 
 > This doc is translated by [Gemini](https://gemini.google.com/).
 
-> Last updated on 2026-10-14. Please note that information may become outdated.
+> Last updated on 2026-10-21. Please note that information may become outdated.
 
 > If you are a beginner, this repository is likely not suitable for you. It is recommended to start your AI journey with [Cherry Studio](https://docs.cherry-ai.com/), [DeepSeek Chat](https://chat.deepseek.com/), and [Yuanbao](https://yuanbao.tencent.com/).
 
@@ -18,7 +18,7 @@ Your actual situation is likely different from mine. For instance, [egolite](htt
 
 ## Models
 
-In terms of code quality and cost-effectiveness, Opus and GPT are the best choices among overseas models, followed by Grok. Among domestic (Chinese) models, GLM + DeepSeek is the best combination.
+In terms of code quality and cost-effectiveness, Opus and GPT are the best choices among overseas models. Among domestic (Chinese) models, GLM + DeepSeek is the best combination.
 
 > **NEVER try to save money on models! The most expensive cost in programming is rework time, and non-top-tier models waste far, far more time than top-tier models do!**
 > For users in China, the easiest way to access Opus and GPT is through API relays (API proxies). Relays must not downgrade model quality ("water down" responses) or maliciously block requests, otherwise, the user experience will be severely impacted. Personally, I recommend [aicentos](https://aicentos.com/sign-up?aff=mgM8), [AiGoCode](https://aigocode.com/invite/7XH6NZZZ), and [CCSub](https://www.ccsub.net/register?ref=TUM8D23V).
@@ -38,8 +38,6 @@ Pi places greater emphasis on custom assembly. Its engineering implementation is
 Cursor only offers pay-as-you-go pricing, and its engineering implementation is not as refined as Claude Code or Codex. Currently, it heavily pushes its in-house Composer and Grok models, requiring paid subscriptions just to connect third-party APIs. It feels somewhat clumsy at present.
 
 OpenCode is fully open source, but its engineering quality is relatively poor, lacking polish in many subtle UX details. Its only merit is being open source and controllable. It is recommended to avoid using it or purchasing OpenCode products, as there are suspicions of quantization and context truncation 😅.
-
-> Grok-related performance has not been specifically tested yet.
 
 Domestic tools are more complex, as model providers often offer their own official tools that can be used directly, such as:
 
@@ -73,7 +71,7 @@ For evaluating model capabilities and intelligence levels, it is recommended to 
 3. 👍 Pi
 - Speed mainly depends on the model provider.
 - Model integration is fully customizable, but setting default main and sub-agent models is still recommended.
-- Personally, I use Opus 5.5 high as the default main model and Sonnet 5.5 high as the default sub-agent model. I also recommend the cost-effective combination of GPT 6.1 Sol high / Grok 4.7 xhigh + DeepSeek 4.1 Flash high.
+- Personally, I use Opus 5.5 high as the default main model and Sonnet 5.5 high as the default sub-agent model. I also recommend the cost-effective combination of GPT 6.1 Sol high + DeepSeek 4.1 Flash high.
 
 
 4. 👎︎ Cursor + Composer 2.5 / Grok 4.7
