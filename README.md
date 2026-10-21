@@ -211,6 +211,12 @@ Squash merge feat-xxx into main.
 
 Please refer to [Ability to set a default GH CLI user in a repository](https://github.com/cli/cli/discussions/12237).
 
+### I don't want to use ponytail-review. Are there any alternatives?
+
+- Claude Code & Codex have built-in Code Review.
+- [mattpocock/skills](https://github.com/mattpocock/skills) provides Code Review Skill.
+- [tw93/Waza](https://github.com/tw93/Waza) provides Check Skill.
+
 ### I don't like pieced-together workflows. Are there complete end-to-end alternatives?
 
 If you prefer a complete, all-in-one workflow suit rather than a pieced-together one, check out:

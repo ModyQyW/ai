@@ -22,7 +22,7 @@ bunx skills@latest add -y -g upstash/context7 -s find-docs -a '*'
 bunx skills@latest add -y -g anthropics/skills -s docx -s frontend-design -a '*'
 
 # Daily development
-bunx skills@latest add -y -g tw93/Waza -s hunt -a '*'
+bunx skills@latest add -y -g tw93/Waza -s check -s hunt -s write -a '*'
 
 # Architecture and development enhanced
 bunx skills@latest add -y -g mattpocock/skills -s codebase-design -s domain-modeling -s grilling -s improve-codebase-architecture -s tdd -a '*'

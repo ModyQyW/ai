@@ -193,7 +193,13 @@ Squash merge feat-xxx into main.
 
 请参考 [Ability to set a default GH CLI user in a repository](https://github.com/cli/cli/discussions/12237)。
 
-### 我不喜欢拼凑的工作流，有其他整套的选择吗？
+### 我不想使用 ponytail-review 审查代码，有其它选择吗？
+
+- Claude Code 和 Codex 都提供了自带的 Code Review
+- [mattpocock/skills](https://github.com/mattpocock/skills) 提供了 Code Review Skill
+- [tw93/Waza](https://github.com/tw93/Waza) 提供了 Check Skill
+
+### 我不喜欢拼凑的工作流，有其它整套的选择吗？
 
 如果你希望使用一整套的工作流，而不是当前拼凑的工作流，推荐看看以下内容：
 
