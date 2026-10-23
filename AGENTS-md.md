@@ -33,7 +33,7 @@ When rules conflict, resolve in this order and still flag the conflict:
 - Label facts, inferences, assessments, and assumptions, and state how strongly a source backs a claim: "official recommendation", "one documented option", or "example in docs".
 - Be persistent: carry tasks to a verified end instead of handing them back half-done. Persistence is not permission to guess.
 - Flag suspected spelling mistakes and ask me to confirm.
-- When I correct your mistake, suggest a rule change that prevents it.
+- When I correct your mistake, suggest a rule change that prevents it, in this file or in the repo's `AGENTS.md`.
 
 ## Verify before claiming
 
@@ -43,8 +43,6 @@ When rules conflict, resolve in this order and still flag the conflict:
 - When code or a comment cites a doc link, open it before relying on it. If you can't, treat the claim as a suspicion and say so.
 - For package-manager or runtime differences (npm/pnpm/yarn/bun lifecycles, script policies), prefer a minimal repro in `mktemp -d` over memory or search.
 - Frontend code is live only if every ancestor up to a routed page renders it. Imported ≠ mounted: a commented-out JSX or dead conditional anywhere in the chain breaks it. When it matters (security, dead code, impact analysis), show the chain `page → … → element` and flag any break.
-- Before adding storage for a field that gets dropped, confirm that a current UI lets the user enter it; otherwise propose deprecating it.
-
 ## Planning
 
 - State your assumptions and proceed on reasonable ones. Ask only when ambiguity would materially change outcome, scope, risk, or authorization.
@@ -63,6 +61,7 @@ Understand the full context, constraints, and goal before answering questions ab
 - Build deep modules: high cohesion, low coupling, and a small, stable interface that hides the complexity behind it. Dependencies point one way, toward stable domain logic, with no cycles.
 - Keep API, domain, storage, and view models from leaking across layers: validate and convert data at each boundary, shape public responses explicitly instead of returning storage records, and share no mutable state between layers. Two layers share a type only when they mean the same data and must change together.
 - Judge public APIs from the caller's side: discoverability, misuse resistance, error semantics, configuration, and evolution. Compare industry practice with local conventions and explain deliberate deviations.
+- Before adding storage for a field the system accepts but currently drops, confirm that a current UI lets users enter it; otherwise propose deprecating the field.
 - Keep public contracts (published APIs, package exports, CLI flags, wire formats, persisted data) backward compatible; break one only when I ask, with a version bump or migration path.
 - Record significant architecture decisions in the repo's ADRs when it keeps them.
 
@@ -71,13 +70,14 @@ Understand the full context, constraints, and goal before answering questions ab
 - Write the minimum code that solves the task. No speculative features, options, or configurability.
 - No abstraction for a single use: no pass-through wrappers, single-implementation interfaces, or patterns for one case. Duplication beats the wrong abstraction: abstract only when at least two real cases share a concept and change together, never because code looks alike. When an abstraction stops fitting, inline it and re-derive from the concrete cases instead of adding flags.
 - Every helper, layer, or special case must answer "what breaks if I inline or delete it?" If nothing, cut it. If 200 lines could be 50, rewrite without changing behavior.
-- Reuse before writing: project code first, then the standard library and platform features, then installed dependencies, including workspace packages. Add a dependency only for a clear benefit; then prefer a mature, maintained library over reimplementing a solved problem, and use the project's package manager and lockfile.
+- Reuse before writing: project code first, then the standard library and platform features, then installed dependencies, including workspace packages. Add a dependency only for a clear benefit; then prefer a mature, maintained library over reimplementing a solved problem, confirm its exact name in the registry before installing (look-alike and hallucinated package names exist), and use the project's package manager and lockfile.
 - Prefer maintainability and stability over performance, and propose tuning before applying it, but don't ship obvious waste such as N+1 queries, unbounded loads, or needless re-renders.
 - For maintenance, make targeted changes that follow existing conventions. When I ask for a redesign, rewrite, or breaking change, don't sneak minimality or backward compatibility back in.
 
 ### Reliability and security
 
 - Validate untrusted input at system boundaries (user input, external APIs, files, webhooks). Inside them, trust internal code and framework guarantees; don't guard impossible cases.
+- Never build SQL, shell commands, HTML, or file paths by concatenating untrusted input; use parameterized queries, argument arrays, the framework's escaping, and paths resolved inside an allowed root.
 - In multi-user or multi-tenant systems, enforce authentication, authorization, and data isolation on the server for every read and write path. Grant users, tokens, and services the least privilege they need.
 - Never swallow errors silently, and never hide errors from the error tracker (logging to the console counts as hiding); add context to them instead. Never drop security checks or data-loss protection to simplify.
 - Give logs and errors enough context to locate a failure (IDs, operation, relevant state) without secrets or personal data.
@@ -121,7 +121,8 @@ Understand the full context, constraints, and goal before answering questions ab
 
 - Add tests for realistic, observable regressions, non-trivial invariants or boundaries, and concrete bugs. A changed line or higher coverage alone is not a reason.
 - Test at the behavior boundary, preferably by extending existing tests. Don't test literals, mappings, obvious control flow, implementation details, or removed features, unless the absence is itself a contract.
-- For concurrency, prefer deterministic coordination or controlled scheduling over sleeps.
+- Write no tautological tests: every test must fail when the behavior it covers breaks. Derive expected values independently (by hand, from the spec, or from a known-good example), never by calling the code under test or pasting its unchecked output, and don't assert only what a mock, stub, or fixture was set up to return. When unsure, break the covered code and confirm the test fails.
+- Keep tests deterministic and isolated: control time, randomness, and network, and don't depend on test order or on state other tests leave behind. For concurrency, prefer deterministic coordination or controlled scheduling over sleeps.
 
 ## Verification and handoff
 
@@ -136,6 +137,7 @@ Understand the full context, constraints, and goal before answering questions ab
 ## Review
 
 - Review systematically against these rules: cover the full scope, rank by user impact and risk, and give each finding its concrete failure or maintenance cost and a safe fix. Skip cosmetic issues that tools already catch.
+- Check every test in scope for tautology (see Tests) and report each tautological test as a finding, with a rewrite against independent expectations or its deletion as the fix.
 
 ## Communication
 
