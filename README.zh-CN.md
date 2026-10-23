@@ -85,7 +85,7 @@ OpenCode 纯开源，工程化比较差，很多体验细节打磨不足，只�
 
 [AGENTS.md](https://agents.md/) 是通用的 Coding Agents 指南，可用于全局规则设置。
 
-本仓库提供了我自己使用的 [AGENTS.md](./AGENTS.md) 以及同步所用的 shell 脚本。**注意，你需要安装 [bun](https://bun.com/) 和最新版本的 [Node.js LTS](https://nodejs.org/)。**
+本仓库提供了我自己使用的 [AGENTS.md](./AGENTS-md.md) 以及同步所用的 shell 脚本。**注意，你需要安装 [bun](https://bun.com/) 和最新版本的 [Node.js LTS](https://nodejs.org/)。**
 
 ```shell
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/ModyQyW/ai/refs/heads/main/bump-global-agents-md.sh)"

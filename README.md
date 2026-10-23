@@ -96,7 +96,7 @@ For evaluating model capabilities and intelligence levels, it is recommended to 
 
 [AGENTS.md](https://agents.md/) is a universal guide for Coding Agents that can be used for global rules configuration.
 
-This repository provides the [AGENTS.md](https://www.google.com/search?q=./AGENTS.md) I use personally, along with the shell script used for synchronization. **Note: You need to install [bun](https://bun.com/) and the latest version of [Node.js LTS](https://nodejs.org/).**
+This repository provides the [AGENTS.md](./AGENTS-md.md) I use personally, along with the shell script used for synchronization. **Note: You need to install [bun](https://bun.com/) and the latest version of [Node.js LTS](https://nodejs.org/).**
 
 ```shell
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/ModyQyW/ai/refs/heads/main/bump-global-agents-md.sh)"
