@@ -19,10 +19,10 @@ bunx skills@latest add -y -g firecrawl/cli -s firecrawl -a '*'
 bunx skills@latest add -y -g upstash/context7 -s find-docs -a '*'
 
 # Local website design and documentations handling
-bunx skills@latest add -y -g anthropics/skills -s docx -s frontend-design -a '*'
+bunx skills@latest add -y -g anthropics/skills -s frontend-design -a '*'
 
 # Daily development
-bunx skills@latest add -y -g tw93/Waza -s check -s hunt -s write -a '*'
+bunx skills@latest add -y -g tw93/Waza -s check -s hunt -a '*'
 
 # Architecture and development enhanced
 bunx skills@latest add -y -g mattpocock/skills -s codebase-design -s domain-modeling -s grilling -s improve-codebase-architecture -s tdd -a '*'
