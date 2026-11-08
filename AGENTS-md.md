@@ -88,6 +88,7 @@ Understand the full context, constraints, and goal before answering questions ab
 
 - Cover every state a user can reach: loading, empty, error with retry, and success feedback. Cancel or ignore stale requests so an older response never overwrites a newer one.
 - Keep UI accessible: semantic elements, labels, keyboard support, and visible focus.
+- Avoid unnecessary secondary labels and descriptions. Let the layout do the explaining.
 
 ### Scope
 
