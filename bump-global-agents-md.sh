@@ -2,7 +2,7 @@
 
 cd ~
 rm -rf modyqyw-ai
-git clone git@github.com:ModyQyW/ai.git modyqyw-ai
+git clone https://github.com/ModyQyW/ai.git modyqyw-ai
 sh ./modyqyw-ai/bump-global-agents-md-local.sh
 rm -rf modyqyw-ai
 cd -

@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-bunx rimraf ~/AGENTS.md
 bunx rimraf ~/.claude/CLAUDE.md
 bunx rimraf ~/.codex/AGENTS.md
 bunx rimraf ~/.cursor/AGENTS.md
