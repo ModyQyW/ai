@@ -33,26 +33,14 @@ bunx skills@latest add -y -g sickn33/antigravity-awesome-skills -s nodejs-best-p
 # TypeScript
 bunx skills@latest add -y -g wshobson/agents -s typescript-advanced-types -a '*'
 
-# React & React Native
-bunx skills@latest add -y -g vercel-labs/agent-skills -s vercel-composition-patterns -s vercel-react-best-practices -s vercel-react-view-transitions -s vercel-react-native-skills -a '*'
-
-# Expo
-bunx skills@latest add -y -g expo/skills -s '*' -a '*'
+# React
+bunx skills@latest add -y -g vercel-labs/agent-skills -s vercel-composition-patterns -s vercel-react-best-practices -a '*'
 
 # React doctor
 bunx skills@latest add -y -g millionco/react-doctor -s improve-react -s react-doctor -a '*'
 
-# Zod
-bunx skills@latest add -y -g pproenca/dot-skills -s zod -a '*'
-
-# Valibot
-bunx skills@latest add -y -g open-circle/agent-skills -s valibot -a '*'
-
 # Ant Design
 bunx skills@latest add -y -g ant-design/ant-design-cli -s antd -a '*'
-
-# Tanstack
-bunx skills@latest add -y -g tanstack-skills/tanstack-skills -s '*' -a '*'
 
 # Linear
 bunx skills@latest add -y -g schpet/linear-cli -s linear-cli -a '*'
