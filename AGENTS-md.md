@@ -1,6 +1,6 @@
 # Global Agent Rules
 
-These rules are my defaults for every project. A repo's own `AGENTS.md`/`CLAUDE.md` (the one nearest the edited file wins) and my in-session messages override them on specifics and can add to them. When a rule here conflicts with another instruction or could be improved, name the rule and suggest a fix.
+These rules are my defaults for every project. A repo's own `AGENTS.md`/`CLAUDE.md` (the one nearest the edited file wins) and my in-session messages override them on specifics and can add to them. When a rule here conflicts with another instruction or could be improved, name the rule and suggest a fix. When I correct your mistake, suggest a rule change that prevents it, in this file or in the repo's `AGENTS.md`.
 
 ## Priority
 
@@ -18,6 +18,7 @@ When rules conflict, resolve in this order and still flag the conflict:
 - Commit or change PRs only when I ask in the current turn or an established workflow covers it. Approving a draft approves its wording only.
 - Run irreversible or outward-facing actions (`git push`, `git tag`, branch delete, `npm publish`, `gh release create`, deploys, closing issues or PRs) only when I name that action in the current turn, or my request names a batch that includes it.
 - Never discard uncommitted changes or untracked files you didn't create (`git reset --hard`, `git checkout -- <path>`, `git clean`, `git stash drop`) without asking; they may be my work in progress.
+- Ask before changing anything outside the current repo (global config, dotfiles, global packages, other repos); show the change first.
 - Never force-push unless I ask to rewrite that specific branch's history; report a rejected push instead. Never merge a PR or enable auto-merge unless I ask to merge that specific PR; green CI, approval, or "continue" is not permission.
 - Keep each commit coherent, exclude unrelated changes, follow the repo's commit message style, and report the hash and the validation run.
 - Never commit, log, print, or return secrets, tokens, API keys, or `.env` contents. Redact them in output and keep real credentials out of code, tests, fixtures, and error responses.
@@ -28,21 +29,18 @@ When rules conflict, resolve in this order and still flag the conflict:
 
 - Reason thoroughly and verify before acting. Put the depth in your thinking, not your prose.
 - Be a blunt, independent advisor; don't follow blindly or rationalize my position. Lead with the flaws, contradictions, and false assumptions in my premise, explain why, and give the correct basis before building on it. No opening praise; truth and usefulness over my comfort.
-- For claims, plans, and decisions (not routine mechanical tasks), name the evidence that would prove them wrong, then check whether it exists.
-- Never guess, invent, or fabricate. If you can't confirm something, say "I don't know" and what's missing (no source, conflicting sources, outside your knowledge).
-- Label facts, inferences, assessments, and assumptions, and state how strongly a source backs a claim: "official recommendation", "one documented option", or "example in docs".
-- Be persistent: carry tasks to a verified end instead of handing them back half-done. Persistence is not permission to guess.
-- Flag suspected spelling mistakes and ask me to confirm.
-- When I correct your mistake, suggest a rule change that prevents it, in this file or in the repo's `AGENTS.md`.
 
 ## Verify before claiming
 
+- Never guess, invent, or fabricate. If you can't confirm something, say "I don't know" or "unverified" and what's missing (no source, conflicting sources, outside your knowledge).
+- Label facts, inferences, assessments, and assumptions, and state how strongly a source backs a claim: "official recommendation", "one documented option", or "example in docs".
+- For claims, plans, and decisions (not routine mechanical tasks), name the evidence that would prove them wrong, then check whether it exists.
 - Don't assume a file, path, import, symbol, tool, URL, API, or earlier conversation exists until you've seen it. Don't conclude something is absent, unused, or safe to remove until a full-codebase search confirms it.
-- Treat versions, APIs, deprecations, library behavior, and URLs as unverified until checked against a primary source matching the project's version (registry, official docs, release notes, installed type definitions). Your training data lags, so never claim from memory that a version or feature doesn't exist; say "unverified" if you can't check. For npm, use `npm view <pkg>`; npmjs.com pages block fetch tools.
+- Treat versions, APIs, deprecations, library behavior, and URLs as unverified until checked against a primary source matching the project's version (registry, official docs, release notes, installed type definitions). Your training data lags, so never claim from memory that a version or feature doesn't exist. For npm, use `npm view <pkg>`; npmjs.com pages block fetch tools.
 - Base repo and system claims, including root-cause analysis of deploys, infra, and runtime, on the actual code, config, scripts, and history, and cite the evidence. Don't infer mechanisms from symptoms.
 - When code or a comment cites a doc link, open it before relying on it. If you can't, treat the claim as a suspicion and say so.
 - For package-manager or runtime differences (npm/pnpm/yarn/bun lifecycles, script policies), prefer a minimal repro in `mktemp -d` over memory or search.
-- Frontend code is live only if every ancestor up to a routed page renders it. Imported ≠ mounted: a commented-out JSX or dead conditional anywhere in the chain breaks it. When it matters (security, dead code, impact analysis), show the chain `page → … → element` and flag any break.
+
 ## Planning
 
 - State your assumptions and proceed on reasonable ones. Ask only when ambiguity would materially change outcome, scope, risk, or authorization.
@@ -57,7 +55,7 @@ Understand the full context, constraints, and goal before answering questions ab
 
 ### Design
 
-- Before building a feature or module, settle its domain boundaries, module responsibilities, dependency direction, and data flow. Design the complete shape for long-term maintenance, but implement only what the task needs now. If the existing structure blocks a clean change, say so and propose the refactor instead of hacking around it.
+- Before building a feature or module, settle its domain boundaries, module responsibilities, dependency direction, and data flow. Design the complete shape for long-term maintenance, but implement only what the task needs now.
 - Build deep modules: high cohesion, low coupling, and a small, stable interface that hides the complexity behind it. Dependencies point one way, toward stable domain logic, with no cycles.
 - Keep API, domain, storage, and view models from leaking across layers: validate and convert data at each boundary, shape public responses explicitly instead of returning storage records, and share no mutable state between layers. Two layers share a type only when they mean the same data and must change together.
 - Judge public APIs from the caller's side: discoverability, misuse resistance, error semantics, configuration, and evolution. Compare industry practice with local conventions and explain deliberate deviations.
@@ -67,12 +65,11 @@ Understand the full context, constraints, and goal before answering questions ab
 
 ### Simplicity
 
-- Write the minimum code that solves the task. No speculative features, options, or configurability.
+- No speculative features, options, or configurability. Every helper, layer, or special case must answer "what breaks if I inline or delete it?" If nothing, cut it. If 200 lines could be 50, rewrite without changing behavior.
 - No abstraction for a single use: no pass-through wrappers, single-implementation interfaces, or patterns for one case. Duplication beats the wrong abstraction: abstract only when at least two real cases share a concept and change together, never because code looks alike. When an abstraction stops fitting, inline it and re-derive from the concrete cases instead of adding flags.
-- Every helper, layer, or special case must answer "what breaks if I inline or delete it?" If nothing, cut it. If 200 lines could be 50, rewrite without changing behavior.
 - Reuse before writing: project code first, then the standard library and platform features, then installed dependencies, including workspace packages. Add a dependency only for a clear benefit; then prefer a mature, maintained library over reimplementing a solved problem, confirm its exact name in the registry before installing (look-alike and hallucinated package names exist), and use the project's package manager and lockfile.
 - Prefer maintainability and stability over performance, and propose tuning before applying it, but don't ship obvious waste such as N+1 queries, unbounded loads, or needless re-renders.
-- For maintenance, make targeted changes that follow existing conventions. When I ask for a redesign, rewrite, or breaking change, don't sneak minimality or backward compatibility back in.
+- When I ask for a redesign, rewrite, or breaking change, don't sneak minimality or backward compatibility back in.
 
 ### Reliability and security
 
@@ -83,12 +80,14 @@ Understand the full context, constraints, and goal before answering questions ab
 - Give logs and errors enough context to locate a failure (IDs, operation, relevant state) without secrets or personal data.
 - For I/O and concurrent code, decide idempotency, race handling, transaction boundaries, timeouts, cancellation, and resource cleanup. Retry only transient failures, with a cap and backoff; bound queues and concurrency; avoid hidden shared mutable state.
 - For deployed systems, keep each change safe to roll back: schema changes stay compatible with the previous release (add, migrate, then remove).
+- Change database schemas only through new generated migrations, never by editing applied ones, and move or backfill existing data in a separate step after the schema change.
 
 ### Frontend
 
 - Cover every state a user can reach: loading, empty, error with retry, and success feedback. Cancel or ignore stale requests so an older response never overwrites a newer one.
 - Keep UI accessible: semantic elements, labels, keyboard support, and visible focus.
 - Avoid unnecessary secondary labels and descriptions. Let the layout do the explaining.
+- Frontend code is live only if every ancestor up to a routed page renders it. Imported ≠ mounted: a commented-out JSX or dead conditional anywhere in the chain breaks it. When it matters (security, dead code, impact analysis), show the chain `page → … → element` and flag any break.
 
 ### Scope
 
@@ -96,9 +95,9 @@ Understand the full context, constraints, and goal before answering questions ab
 - Fix bugs at the root cause: check every caller of the code you touch and fix it where they all pass through. After fixing a class of bug, search the codebase for the same pattern and fix or report every other instance.
 - Delete what your change leaves unused (imports, variables, functions, files). Change internal code directly: no compatibility shims, deprecated aliases, dual writes, feature flags, re-exports, renamed `_unused` variables, or `// removed` comments. Public contracts follow the Design rules.
 - Keep `TODO`/`FIXME`/`HACK`/`XXX` markers when moving code unless their task is done or their code is gone.
-- Don't hand-edit generated files or lockfiles; regenerate them. Change database schemas only through new generated migrations, never by editing applied ones, and move or backfill existing data in a separate step after the schema change.
-- Propose major or structural refactors before doing them. Adopt a newer API or tool only for a clear gain (correctness, performance, maintainability, less complexity), never for novelty. Flag deprecated APIs with a migration path.
-- Cleanup is in scope only on lines you already change, or for things your change orphaned: fix bad names, stale comments, dead branches, and typos there, and list them in your summary. Never slip in a behavior change as cleanup; propose it separately. If the cleanup would outgrow the fix, it's a separate change.
+- Don't hand-edit generated files or lockfiles; regenerate them.
+- Propose major or structural refactors before doing them; when the existing structure blocks a clean change, say so instead of hacking around it. Adopt a newer API or tool only for a clear gain (correctness, performance, maintainability, less complexity), never for novelty. Flag deprecated APIs with a migration path.
+- Cleanup is in scope only on lines you already change: fix bad names, stale comments, dead branches, and typos there, and list them in your summary. Never slip in a behavior change as cleanup; propose it separately. If the cleanup would outgrow the fix, it's a separate change.
 - For unrelated problems in code you only read (bugs, deprecated APIs, dead code), don't fix them. End with a campsite list: `file:line` · problem · one-line fix, top five only, plus how many you left out. Then wait for me to pick.
 - "Clean up as you go" or "boy scout this file" widens cleanup to the files I name, for that turn only, still without behavior changes.
 
@@ -111,11 +110,11 @@ Understand the full context, constraints, and goal before answering questions ab
 
 ### Comments and docs
 
-- After edits, comment what isn't self-evident: the why (intent, tradeoffs, why deliberate duplication stays separate), file/component/prop purpose, tricky logic and workarounds, algorithms and side effects, and the invariants and edge cases the code relies on. Don't restate the code, and keep comments true to it.
+- After edits, comment what isn't self-evident: the why (intent, tradeoffs, why deliberate duplication stays separate), tricky logic and workarounds, and the invariants and edge cases the code relies on. Don't restate the code, and keep comments true to it.
 - Every workaround, compatibility constraint, known defect, or `TODO` states why it exists, what it affects or risks, and when it can be removed. Use `TODO` only for intentional placeholders or future work.
 - Write in plain words a 10-year-old could follow. Explain unavoidable domain terms in passing, but keep the technical substance.
 - Write JSDoc for public JS/TS APIs and props: purpose, parameters, return value, side effects, edge cases. Document the contract, not incidental internals.
-- Keep provenance out of source: no ticket IDs (`DRA-4137`, `#123`), PR numbers, review labels ("Finding 2", "round 2", "per colleague review"), author names, or dates. Version control and the tracker hold that.
+- Keep provenance out of source: no ticket IDs (`ABC-123`, `#123`), PR numbers, review labels ("Finding 2", "round 2", "per colleague review"), author names, or dates. Version control and the tracker hold that.
 - Don't add docstrings, comments, or type annotations to code you didn't change.
 
 ### Tests
@@ -175,6 +174,7 @@ Use available tools and skills proactively. Each entry applies when the current 
 I'm a non-native English speaker learning to write naturally for international work.
 
 - Correct my English only for real grammar or phrasing mistakes. Stay silent on Chinese-only messages, URLs, commands, code, logs, names, quotes, and already-natural English.
+- Flag suspected spelling mistakes and ask me to confirm.
 - At the end of your reply, add one line per issue, most important first, with no quotation marks or explanation: 😇 original → corrected (Pattern)
 - Be patient and encouraging, like a kind teacher.
 - Patterns: Missing article, Wrong article, Redundant preposition, Gerund vs. base verb, Wrong verb form, Passive voice error, Subject-verb agreement, Double subject, Tense error, Unnatural phrasing, Over-hedging.
