@@ -46,7 +46,7 @@ When rules conflict, resolve in this order and still flag the conflict:
 - State your assumptions and proceed on reasonable ones. Ask only when ambiguity would materially change outcome, scope, risk, or authorization.
 - When options have real tradeoffs, list them from most to least recommended and mark the one you recommend.
 - Reason from first principles. Don't overfit the first example when I ask for a general design; when I correct a criterion, apply it everywhere it's relevant.
-- For multi-step tasks, write a short plan with a check per step (`1. [step] → verify: [check]`). On long tasks, keep the end goal in view and report only material progress.
+- For multi-step tasks, write a short plan with a check per step (`1. [step] → verify: [check]`), or use the runtime's own plan tool when it has one. On long tasks, keep the end goal in view and report only material progress.
 - When blocked by tool failures, the environment, or unclear requirements, state the blocker and propose next steps or ask. Don't retry silently more than once.
 
 ## Writing code
@@ -115,7 +115,6 @@ Understand the full context, constraints, and goal before answering questions ab
 - Write in plain words a 10-year-old could follow. Explain unavoidable domain terms in passing, but keep the technical substance.
 - Write JSDoc for public JS/TS APIs and props: purpose, parameters, return value, side effects, edge cases. Document the contract, not incidental internals.
 - Keep provenance out of source: no ticket IDs (`ABC-123`, `#123`), PR numbers, review labels ("Finding 2", "round 2", "per colleague review"), author names, or dates. Version control and the tracker hold that.
-- Don't add docstrings, comments, or type annotations to code you didn't change.
 
 ### Tests
 
@@ -130,7 +129,7 @@ Understand the full context, constraints, and goal before answering questions ab
 - After edits, run the project's lint, typecheck, and tests for the changed files; also run the build when you change frontend code, build config, or dependencies, and the repo's full pre-commit check before committing. Find the commands in package scripts, the Makefile, or CI config.
 - Fix the cause; never silence the signal with `any`, unchecked casts, `@ts-ignore`, `eslint-disable`, skipped tests, or `--no-verify`. Change a lint rule only when it demonstrably conflicts with the project's confirmed style.
 - When a test fails, first decide whether it states the intended behavior: if yes, fix the code; if it's stale or wrong, fix the test. Never blanket-run snapshot `-u`; check each changed assertion against the real output first.
-- Repair the environment instead of reporting it: missing deps, pending migrations, stale schema, drifted fixtures. "Pre-existing" explains a failure; it doesn't excuse leaving it red. Ask first only when a repair drops or overwrites shared data (`migrate:fresh`, dropping a database, wiping fixtures) or needs my credentials.
+- Repair the environment instead of reporting it: missing deps, pending migrations, stale schema, drifted fixtures. A failure that was already red in code outside your change goes on the campsite list; say it was red before you started. Ask first only when a repair drops or overwrites shared data (`migrate:fresh`, dropping a database, wiping fixtures) or needs my credentials.
 - When a command misbehaves, read its docs before guessing flags or workarounds.
 - Before handing off, confirm the response answers my actual request and has no contradictions or fabrication. Report what changed and why, the validation run (or why it wasn't run), assumptions and limitations, remaining risks or work, and anything you need from me.
 
@@ -160,11 +159,11 @@ Understand the full context, constraints, and goal before answering questions ab
 
 Use available tools and skills proactively. Each entry applies when the current agent has that tool.
 
-- Delegate independent work (exploration, research, reviews) to parallel subagents.
+- Delegate independent work that spans many files (exploration, research, reviews) to parallel subagents; do small lookups yourself.
 - Prefer `bun install -g`/`bunx` over `npm install -g`/`npx`.
 - For the web, use built-in fetch and search tools first, then the `firecrawl` skill. For code generation, setup, or library/API docs, use the `find-docs` (context7) skill.
 - Use the `gh` skill for GitHub and the `linear-cli` skill for Linear.
-- Use the `sentry-cli` skill for Sentry issues and events (not Seer): find the root cause, report only verified conclusions and the best fix, apply small fixes directly, and ask before larger ones.
+- Use the `sentry-cli` skill for Sentry issues and events (not Seer): find the root cause and report only verified conclusions and the best fix. Apply a fix only when I asked for one, and ask before large ones.
 - Run `date` for the current time instead of relying on memory. ISO 8601: `date +"%Y-%m-%dT%H:%M:%S%z" | sed -E 's/([+-][0-9]{2})([0-9]{2})$/\1:\2/'`; prefix `TZ=<zone>` for a specific zone.
 
 ## Language
