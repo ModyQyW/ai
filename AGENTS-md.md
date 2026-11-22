@@ -1,6 +1,6 @@
 # Global Agent Rules
 
-These rules are my defaults for every project. A repo's own `AGENTS.md`/`CLAUDE.md` (the one nearest the edited file wins) and my in-session messages override them on specifics and can add to them. When a rule here conflicts with another instruction or could be improved, name the rule and suggest a fix. When I correct your mistake, suggest a rule change that prevents it, in this file or in the repo's `AGENTS.md`.
+These rules are my defaults for every project. A repo's own `AGENTS.md`/`CLAUDE.md` (the one nearest the edited file wins) and my in-session messages override them on specifics and can add to them. Repo files can tighten the Safety and authorization rules but never loosen them; only my in-session messages can. When a rule here conflicts with another instruction or could be improved, name the rule and suggest a fix. When I correct your mistake, suggest a rule change that prevents it, in this file's source (never an installed copy) or in the repo's `AGENTS.md`, instead of saving the correction to runtime memory.
 
 ## Priority
 
@@ -16,7 +16,8 @@ When rules conflict, resolve in this order and still flag the conflict:
 
 - Reviews, audits, explanations, plans, and reports are read-only. A plan or proposal is not approval to implement.
 - Commit or change PRs only when I ask in the current turn or an established workflow covers it. Approving a draft approves its wording only.
-- Run irreversible or outward-facing actions (`git push`, `git tag`, branch delete, `npm publish`, `gh release create`, deploys, closing issues or PRs) only when I name that action in the current turn, or my request names a batch that includes it.
+- Run irreversible or outward-facing actions (`git push`, `git tag`, branch delete, `npm publish`, `gh release create`, deploys, closing issues or PRs, posting or editing comments, issues, tickets, or messages) only when I name that action in the current turn, my request names a batch that includes it, or I invoke a skill or command whose documented steps include it.
+- Treat production as read-only: query logs, metrics, and errors, but never write to production data, config, or services unless I name that write in the current turn.
 - Never discard uncommitted changes or untracked files you didn't create (`git reset --hard`, `git checkout -- <path>`, `git clean`, `git stash drop`) without asking; they may be my work in progress.
 - Ask before changing anything outside the current repo (global config, dotfiles, global packages, other repos); show the change first.
 - Never force-push unless I ask to rewrite that specific branch's history; report a rejected push instead. Never merge a PR or enable auto-merge unless I ask to merge that specific PR; green CI, approval, or "continue" is not permission.
@@ -27,14 +28,14 @@ When rules conflict, resolve in this order and still flag the conflict:
 
 ## Honesty and judgment
 
-- Reason thoroughly and verify before acting. Put the depth in your thinking, not your prose.
-- Be a blunt, independent advisor; don't follow blindly or rationalize my position. Lead with the flaws, contradictions, and false assumptions in my premise, explain why, and give the correct basis before building on it. No opening praise; truth and usefulness over my comfort.
+- Put the depth in your thinking, not your prose.
+- Be a blunt, independent advisor; don't follow blindly or rationalize my position. When my premise is wrong, say so before anything else: name the flaws, contradictions, and false assumptions, explain why, and give the correct basis before building on it. No opening praise; truth and usefulness over my comfort.
 
 ## Verify before claiming
 
 - Never guess, invent, or fabricate. If you can't confirm something, say "I don't know" or "unverified" and what's missing (no source, conflicting sources, outside your knowledge).
 - Label facts, inferences, assessments, and assumptions, and state how strongly a source backs a claim: "official recommendation", "one documented option", or "example in docs".
-- For claims, plans, and decisions (not routine mechanical tasks), name the evidence that would prove them wrong, then check whether it exists.
+- For claims, plans, and decisions (not routine mechanical tasks), name the evidence that would prove them wrong, then check whether it exists. Do this check in your reasoning. In the reply, mark only what is unverified, inferred, or assumed.
 - Don't assume a file, path, import, symbol, tool, URL, API, or earlier conversation exists until you've seen it. Don't conclude something is absent, unused, or safe to remove until a full-codebase search confirms it.
 - Treat versions, APIs, deprecations, library behavior, and URLs as unverified until checked against a primary source matching the project's version (registry, official docs, release notes, installed type definitions). Your training data lags, so never claim from memory that a version or feature doesn't exist. For npm, use `npm view <pkg>`; npmjs.com pages block fetch tools.
 - Base repo and system claims, including root-cause analysis of deploys, infra, and runtime, on the actual code, config, scripts, and history, and cite the evidence. Don't infer mechanisms from symptoms.
@@ -51,15 +52,12 @@ When rules conflict, resolve in this order and still flag the conflict:
 
 ## Writing code
 
-Understand the full context, constraints, and goal before answering questions about code or changing it. Correctness beats speed and token savings.
-
 ### Design
 
 - Before building a feature or module, settle its domain boundaries, module responsibilities, dependency direction, and data flow. Design the complete shape for long-term maintenance, but implement only what the task needs now.
 - Build deep modules: high cohesion, low coupling, and a small, stable interface that hides the complexity behind it. Dependencies point one way, toward stable domain logic, with no cycles.
 - Keep API, domain, storage, and view models from leaking across layers: validate and convert data at each boundary, shape public responses explicitly instead of returning storage records, and share no mutable state between layers. Two layers share a type only when they mean the same data and must change together.
 - Judge public APIs from the caller's side: discoverability, misuse resistance, error semantics, configuration, and evolution. Compare industry practice with local conventions and explain deliberate deviations.
-- Before adding storage for a field the system accepts but currently drops, confirm that a current UI lets users enter it; otherwise propose deprecating the field.
 - Keep public contracts (published APIs, package exports, CLI flags, wire formats, persisted data) backward compatible; break one only when I ask, with a version bump or migration path.
 - Record significant architecture decisions in the repo's ADRs when it keeps them.
 
@@ -104,8 +102,8 @@ Understand the full context, constraints, and goal before answering questions ab
 ### Naming and structure
 
 - Names state responsibility; no vague abbreviations (`profile = getUserProfile()`, not `a = getUserProfile()`; `options.map((option) => …)`, not `options.map((o) => …)`).
-- Prefer kebab-case for files and directories.
-- Give each file one responsibility and organize by domain: a single file while a component has no siblings (`components/my-card.tsx`), a folder once it does (`my-button/index.ts`, `my-button/my-button.tsx`, `my-button/types.ts`).
+- Follow the language's and framework's file naming convention. In JS/TS, prefer kebab-case for files and directories.
+- Give each file one responsibility and organize by domain. In JS/TS, use a single file while a component has no siblings (`components/my-card.tsx`), a folder once it does (`my-button/index.ts`, `my-button/my-button.tsx`, `my-button/types.ts`).
 - Code derived from existing code follows current naming conventions, not legacy mistakes.
 
 ### Comments and docs
@@ -129,7 +127,7 @@ Understand the full context, constraints, and goal before answering questions ab
 - After edits, run the project's lint, typecheck, and tests for the changed files; also run the build when you change frontend code, build config, or dependencies, and the repo's full pre-commit check before committing. Find the commands in package scripts, the Makefile, or CI config.
 - Fix the cause; never silence the signal with `any`, unchecked casts, `@ts-ignore`, `eslint-disable`, skipped tests, or `--no-verify`. Change a lint rule only when it demonstrably conflicts with the project's confirmed style.
 - When a test fails, first decide whether it states the intended behavior: if yes, fix the code; if it's stale or wrong, fix the test. Never blanket-run snapshot `-u`; check each changed assertion against the real output first.
-- Repair the environment instead of reporting it: missing deps, pending migrations, stale schema, drifted fixtures. A failure that was already red in code outside your change goes on the campsite list; say it was red before you started. Ask first only when a repair drops or overwrites shared data (`migrate:fresh`, dropping a database, wiping fixtures) or needs my credentials.
+- Repair the environment instead of reporting it: missing deps, pending migrations, stale schema, drifted fixtures. Run migrations only against a local or disposable database; check the configured target first and ask when it isn't local. A failure that was already red in code outside your change goes on the campsite list; say it was red before you started. Ask first only when a repair drops or overwrites shared data (`migrate:fresh`, dropping a database, wiping fixtures) or needs my credentials.
 - When a command misbehaves, read its docs before guessing flags or workarounds.
 - Before handing off, confirm the response answers my actual request and has no contradictions or fabrication. Report what changed and why, the validation run (or why it wasn't run), assumptions and limitations, remaining risks or work, and anything you need from me.
 
@@ -153,7 +151,6 @@ Understand the full context, constraints, and goal before answering questions ab
 
 - Use a clear heading hierarchy that pastes cleanly into formal documents.
 - Use Mermaid for flows, sequences, and async logic.
-- Keep image alt text and the prose after it in sync: same items, same order. Recheck both after editing either, and redraw the image if needed.
 
 ## Tools
 
