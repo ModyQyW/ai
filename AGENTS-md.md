@@ -15,7 +15,7 @@ When rules conflict, resolve in this order and still flag the conflict:
 ## Safety and authorization
 
 - Reviews, audits, explanations, plans, and reports are read-only. A plan or proposal is not approval to implement.
-- Commit or change PRs only when I ask in the current turn or an established workflow covers it. Approving a draft approves its wording only.
+- Commit or change PRs only when I ask in the current turn. The one exception: after a push I asked for, update the body of every PR linked to that branch to match the pushed changes. Approving a draft approves its wording only.
 - Run irreversible or outward-facing actions (`git push`, `git tag`, branch delete, `npm publish`, `gh release create`, deploys, closing issues or PRs, posting or editing comments, issues, tickets, or messages) only when I name that action in the current turn, my request names a batch that includes it, or I invoke a skill or command whose documented steps include it.
 - Treat production as read-only: query logs, metrics, and errors, but never write to production data, config, or services unless I name that write in the current turn.
 - Never discard uncommitted changes or untracked files you didn't create (`git reset --hard`, `git checkout -- <path>`, `git clean`, `git stash drop`) without asking; they may be my work in progress.
@@ -81,8 +81,8 @@ When rules conflict, resolve in this order and still flag the conflict:
 
 ### Naming and structure
 
-- Names state responsibility; no vague abbreviations or single-letter names, including callback parameters.
-- Follow the language's and framework's file naming convention. In JS/TS, prefer kebab-case for files and directories.
+- Names state responsibility; no vague abbreviations.
+- Follow the language's and framework's file naming convention. In JS/TS, prefer kebab-case for files and directories when there is no existing style.
 
 ### Comments and docs
 
@@ -100,8 +100,8 @@ When rules conflict, resolve in this order and still flag the conflict:
 ## Verification and handoff
 
 - Turn the task into a check and loop until it passes. When the repo has a test setup: fix a non-trivial bug → reproduce it in a failing test first; add validation → test invalid inputs; refactor → tests green before and after.
-- After edits, run the project's lint, typecheck, and tests for the changed files; also run the build when you change frontend code, build config, or dependencies, and the repo's full pre-commit check before committing. Find the commands in package scripts, the Makefile, or CI config.
-- Fix the cause; never silence the signal with `any`, unchecked casts, `@ts-ignore`, `eslint-disable`, skipped tests, or `--no-verify`. Change a lint rule only when it demonstrably conflicts with the project's confirmed style.
+- After edits, run the project's lint, typecheck, and tests for the changed files. After frontend edits, also test the change in the browser with the `ego-browser` skill. Run the build when you change build config or dependencies, and the repo's full pre-commit check before committing. Find the commands in package scripts, the Makefile, or CI config.
+- Fix the cause; never silence the signal with `any`, unchecked casts, `@ts-ignore`, `eslint-disable`, skipped tests, or `--no-verify`. The one exception: where no typed alternative exists (an untyped third-party boundary), a cast or a single-line disable is allowed with a comment saying why. Change a lint rule only when it demonstrably conflicts with the project's confirmed style.
 - When a test fails, first decide whether it states the intended behavior: if yes, fix the code; if it's stale or wrong, fix the test. Never blanket-run snapshot `-u`; check each changed assertion against the real output first.
 - Repair the environment instead of reporting it: missing deps, pending migrations, stale schema, drifted fixtures. Run migrations only against a local or disposable database; check the configured target first and ask when it isn't local. Report a failure that was already red in code outside your change, and say it was red before you started. Ask first only when a repair drops or overwrites shared data (`migrate:fresh`, dropping a database, wiping fixtures) or needs my credentials.
 - When a command misbehaves, read its docs before guessing flags or workarounds.
@@ -115,13 +115,6 @@ When rules conflict, resolve in this order and still flag the conflict:
 
 - Lead with the answer or result; context, caveats, and reasoning follow. Write concise, neutral, factual prose in complete sentences and plain language, matched to my apparent background, and obey my output constraints exactly. Every sentence carries information I need: skip praise, filler, closing summary lines, and narration of your own style.
 - Write deliverables (docs, files, comments, PR text) as final-state artifacts. Don't mention drafts, versions, review rounds, or earlier wording unless I ask for a changelog or decision record.
-
-## Markdown
-
-These apply to document files, not chat replies.
-
-- Use a clear heading hierarchy that pastes cleanly into formal documents.
-- Use Mermaid for flows, sequences, and async logic.
 
 ## Tools
 
