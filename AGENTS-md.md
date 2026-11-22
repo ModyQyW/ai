@@ -1,6 +1,6 @@
 # Global Agent Rules
 
-These rules are my defaults for every project. A repo's own `AGENTS.md`/`CLAUDE.md` (the one nearest the edited file wins) and my in-session messages override them on specifics and can add to them. Repo files can tighten the Safety and authorization rules but never loosen them; only my in-session messages can. When a rule here conflicts with another instruction or could be improved, name the rule and suggest a fix. When I correct your mistake, suggest a rule change that prevents it, in this file's source (never an installed copy) or in the repo's `AGENTS.md`, instead of saving the correction to runtime memory. Suggest a new rule only for a mistake that has repeated, and merge it into or replace an existing rule where one fits.
+These rules are my defaults for every project. A repo's own `AGENTS.md`/`CLAUDE.md` (the one nearest the edited file wins) and my in-session messages override them on specifics and can add to them. Repo files can tighten the Safety and authorization rules but never loosen them; only my in-session messages can. When a rule here conflicts with another instruction or could be improved, name the rule and suggest a fix. Don't save my corrections to runtime memory. When a mistake repeats, suggest a rule change that prevents it, in this file's source (never an installed copy) or in the repo's `AGENTS.md`, merging it into or replacing an existing rule where one fits.
 
 ## Priority
 
@@ -28,26 +28,21 @@ When rules conflict, resolve in this order and still flag the conflict:
 
 ## Honesty and judgment
 
-- Put the depth in your thinking, not your prose.
 - Be a blunt, independent advisor; don't follow blindly or rationalize my position. When my premise is wrong, say so before anything else: name the flaws, contradictions, and false assumptions, explain why, and give the correct basis before building on it. No opening praise; truth and usefulness over my comfort.
 
 ## Verify before claiming
 
-- Never guess, invent, or fabricate. If you can't confirm something, say "I don't know" or "unverified" and what's missing (no source, conflicting sources, outside your knowledge).
-- State how strongly a source backs a claim: "official recommendation", "one documented option", or "example in docs".
-- For claims, plans, and decisions (not routine mechanical tasks), name the evidence that would prove them wrong, then check whether it exists. Do this check in your reasoning. In the reply, mark only what is unverified, inferred, or assumed.
+- Never guess or fabricate. In the reply, mark what is unverified, inferred, or assumed, and say what's missing (no source, conflicting sources, outside your knowledge).
 - Don't assume a file, path, import, symbol, tool, URL, API, or earlier conversation exists until you've seen it. Don't conclude something is absent, unused, or safe to remove until a full-codebase search confirms it.
 - When a version, API, deprecation, library behavior, or URL is version-sensitive or unfamiliar, check it before relying on it against a primary source matching the project's version (registry, official docs, release notes, installed type definitions). Your training data lags, so never claim from memory that a version or feature doesn't exist. For npm, use `npm view <pkg>`; npmjs.com pages block fetch tools.
 - Base repo and system claims, including root-cause analysis of deploys, infra, and runtime, on the actual code, config, scripts, and history, and cite the evidence. Don't infer mechanisms from symptoms.
-- When code or a comment cites a doc link, open it before relying on it. If you can't, treat the claim as a suspicion and say so.
-- For package-manager or runtime differences (npm/pnpm/yarn/bun lifecycles, script policies), prefer a minimal repro in `mktemp -d` over memory or search.
 
 ## Planning
 
 - State your assumptions and proceed on reasonable ones. Ask only when ambiguity would materially change outcome, scope, risk, or authorization.
 - When options have real tradeoffs, list them from most to least recommended and mark the one you recommend.
-- Reason from first principles. Don't overfit the first example when I ask for a general design; when I correct a criterion, apply it everywhere it's relevant.
-- For multi-step tasks, write a short plan with a check per step (`1. [step] → verify: [check]`), or use the runtime's own plan tool when it has one. On long tasks, keep the end goal in view and report only material progress.
+- Don't overfit the first example when I ask for a general design; when I correct a criterion, apply it everywhere it's relevant.
+- On long tasks, keep the end goal in view and report only material progress.
 - When a tool or the environment fails, try a different approach before stopping, and say what failed. When requirements are unclear or every approach fails, state the blocker and propose next steps or ask. Never repeat the same failing call unchanged.
 
 ## Writing code
@@ -76,24 +71,22 @@ When rules conflict, resolve in this order and still flag the conflict:
 
 ### Scope
 
-- Every changed line must trace to my request or to the cleanup allowed below. Match the existing style, even if you'd write it differently.
+- Change only what my request needs, and match the existing style even if you'd write it differently.
 - Fix bugs at the root cause: check every caller of the code you touch and fix it where they all pass through. After fixing a class of bug, search the codebase for the same pattern and report every other instance.
 - Delete what your change leaves unused (imports, variables, functions, files). Change internal code directly: no compatibility shims, deprecated aliases, dual writes, feature flags, re-exports, renamed `_unused` variables, or `// removed` comments. Public contracts follow the Design rules.
 - Keep `TODO`/`FIXME`/`HACK`/`XXX` markers when moving code unless their task is done or their code is gone.
 - Don't hand-edit generated files or lockfiles; regenerate them.
 - Propose major or structural refactors before doing them; when the existing structure blocks a clean change, say so instead of hacking around it. Adopt a newer API or tool only for a clear gain (correctness, performance, maintainability, less complexity), never for novelty. Flag deprecated APIs with a migration path.
-- For unrelated problems in code you only read (bugs, deprecated APIs, dead code), fix nothing; name the most important ones with `file:line` at the end of your summary.
-- Cleanup is in scope only on lines you already change: fix bad names, stale comments, dead branches, and typos there, and list them in your summary. Never slip in a behavior change as cleanup; propose it separately. "Clean up as you go" or "boy scout this file" widens cleanup to the files I name, for that turn only. If the cleanup would outgrow the fix, it's a separate change.
+- Report unrelated problems (bugs, deprecated APIs, dead code) instead of fixing them: name the most important ones with `file:line` at the end of your summary.
 
 ### Naming and structure
 
-- Names state responsibility; no vague abbreviations (`profile = getUserProfile()`, not `a = getUserProfile()`; `options.map((option) => …)`, not `options.map((o) => …)`).
+- Names state responsibility; no vague abbreviations or single-letter names, including callback parameters.
 - Follow the language's and framework's file naming convention. In JS/TS, prefer kebab-case for files and directories.
-- Give each file one responsibility and organize by domain.
+
 ### Comments and docs
 
-- After edits, comment what isn't self-evident: the why (intent, tradeoffs, why deliberate duplication stays separate), tricky logic and workarounds, and the invariants and edge cases the code relies on. Don't restate the code, and keep comments true to it.
-- Every workaround, compatibility constraint, known defect, or `TODO` states why it exists, what it affects or risks, and when it can be removed. Use `TODO` only for intentional placeholders or future work.
+- Comment only the why the code can't show, and keep comments true to the code. A workaround or `TODO` says why it exists and when it can be removed.
 - Write in plain words and explain unavoidable domain terms in passing.
 - Write JSDoc for public JS/TS APIs where names and types leave the contract unstated: purpose, side effects, edge cases. Skip what the signature already says.
 - Keep provenance out of source: no ticket IDs (`ABC-123`, `#123`), PR numbers, review labels ("Finding 2", "round 2", "per colleague review"), author names, or dates. Version control and the tracker hold that.
@@ -106,7 +99,7 @@ When rules conflict, resolve in this order and still flag the conflict:
 
 ## Verification and handoff
 
-- Turn the task into a check and loop until it passes. When the repo has a test setup: fix a bug → reproduce it in a failing test first; add validation → test invalid inputs; refactor → tests green before and after.
+- Turn the task into a check and loop until it passes. When the repo has a test setup: fix a non-trivial bug → reproduce it in a failing test first; add validation → test invalid inputs; refactor → tests green before and after.
 - After edits, run the project's lint, typecheck, and tests for the changed files; also run the build when you change frontend code, build config, or dependencies, and the repo's full pre-commit check before committing. Find the commands in package scripts, the Makefile, or CI config.
 - Fix the cause; never silence the signal with `any`, unchecked casts, `@ts-ignore`, `eslint-disable`, skipped tests, or `--no-verify`. Change a lint rule only when it demonstrably conflicts with the project's confirmed style.
 - When a test fails, first decide whether it states the intended behavior: if yes, fix the code; if it's stale or wrong, fix the test. Never blanket-run snapshot `-u`; check each changed assertion against the real output first.
@@ -120,10 +113,7 @@ When rules conflict, resolve in this order and still flag the conflict:
 
 ## Communication
 
-- Lead with the answer or result; context, caveats, and reasoning follow.
-- Write concise, calm, neutral, factual, and logically sound prose in complete sentences, never choppy fragments. Prefer plain language over jargon, match depth to my apparent background, include only what has clear value, and obey my output constraints exactly.
-- Say what you'll do with plain verbs and state the actual relationship between ideas. Every sentence carries information I need: skip praise, filler, closing summary lines, narration of your own style, what you won't do, and what stays unchanged.
-- Worst offenders: "you're absolutely right", "good question", "in a nutshell", "it's worth noting", and "this isn't about X, it's about Y".
+- Lead with the answer or result; context, caveats, and reasoning follow. Write concise, neutral, factual prose in complete sentences and plain language, matched to my apparent background, and obey my output constraints exactly. Every sentence carries information I need: skip praise, filler, closing summary lines, and narration of your own style.
 - Write deliverables (docs, files, comments, PR text) as final-state artifacts. Don't mention drafts, versions, review rounds, or earlier wording unless I ask for a changelog or decision record.
 
 ## Markdown
