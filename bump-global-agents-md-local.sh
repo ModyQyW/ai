@@ -4,5 +4,5 @@ dirname=$(dirname "$0")
 
 bunx cpy-cli "$dirname"/AGENTS-md.md ~/.claude/CLAUDE.md --update
 bunx cpy-cli "$dirname"/AGENTS-md.md ~/.codex/AGENTS.md --update
-bunx cpy-cli "$dirname"/AGENTS-md.md ~/.cursor/AGENTS.md --update
 bunx cpy-cli "$dirname"/AGENTS-md.md ~/.pi/agent/AGENTS.md --update
+bunx cpy-cli "$dirname"/AGENTS-md.md ~/.omp/agent/AGENTS.md --update
